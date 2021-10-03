@@ -1,10 +1,11 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import './../styles.css';
 
 const NavMenu = () => {
     return (
         <>
-            <Navbar expand="lg" bg="primary" variant="dark">
+            <Navbar expand="lg" variant="dark" className="nav-color">
                 <Navbar.Brand href="/">
                 <img
                     alt=""
