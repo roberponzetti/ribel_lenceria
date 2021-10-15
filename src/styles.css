@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap');
 
 .nav-color{
-    background-color: #f58de7;
+    background-color: #f58de7 !important;
 }
 
 .brand-name{
@@ -43,3 +43,38 @@
   border-color: #ff53ff !important;
   box-shadow: 2px 2px 10px #ff00aae3 !important;
 }
+
+.quantity {
+    max-width: 5rem;
+    padding: 0.5rem;
+    border: solid rgb(0, 0, 0);
+    border-width: 2px 2px;
+    font-size: 2rem;
+    height: 3rem;
+    font-weight: bold;
+    outline: none;
+  }
+  
+  .productCard{
+    width: 20rem !important;
+  }
+
+  .bg-grey{
+    background-color: #f6f6f6 !important;
+  }
+
+  .bg-lightBlue{
+    background-color: #23a7ff !important;
+  }
+
+  .bc-strongPink{
+    border-color: #ff53ff !important;
+  }
+
+  .bc-pink{
+    border-color: #f58de7 !important;
+  }
+
+  .bc-lightBlue{
+    border-color: #23a7ff !important;
+  }
