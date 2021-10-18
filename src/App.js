@@ -8,7 +8,8 @@ function App() {
     <div className="App">
       <NavBar/>
       <ItemListContainer greeting="Catálogo de mi tienda">
-        <ItemCount stock={10} initial={1} />
+            <ItemCount stock={10} initial={1} imgSource={"./img/art1_ribel.jpg"} />
+            <ItemCount stock={0} initial={1} imgSource={"./img/art2_ribel.jpg"}/>
       </ItemListContainer>
     </div>
   );

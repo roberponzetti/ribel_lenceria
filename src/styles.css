@@ -45,17 +45,17 @@
 }
 
 .quantity {
-    max-width: 5rem;
-    padding: 0.5rem;
+    max-width: 4rem;
+    text-align: center;
     border: solid rgb(0, 0, 0);
     border-width: 2px 2px;
-    font-size: 2rem;
-    height: 3rem;
+    font-size: 20px;
+    height: 36px;
     font-weight: bold;
-    outline: none;
   }
   
   .productCard{
+    height: 32rem !important;
     width: 20rem !important;
   }
 
