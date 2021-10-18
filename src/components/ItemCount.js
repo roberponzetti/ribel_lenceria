@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import './../styles.css';
  
 function ItemCount({ stock, initial, imgSource }) {
-  var stockMessage;
+
   const [amount, setAmount] = useState(initial);
   const sub = () => {
     if (initial < amount) {
@@ -24,20 +24,12 @@ function ItemCount({ stock, initial, imgSource }) {
       alert(`Agregaste ${amount} unidades al carrito`)
     }
   };
-
-  if(stock == 0){
-    stockMessage = <h4 class="text-danger">SIN STOCK</h4>;
-
-  }else{
-    stockMessage = <Button className="nav-color bg-lightBlue border-0" onClick={onAdd}>
-    Agregar al carrito
-  </Button>;
-  }
  
   return (
     <div className="m-5">
       <Card className="productCard bg-grey bc-lightBlue">
         <Card.Img
+        className="cardImage"
           variant="top"
           src={imgSource}
           height="300"
@@ -59,10 +51,12 @@ function ItemCount({ stock, initial, imgSource }) {
             <Button className="bg-lightBlue border-0 align-bottom" onClick={sum}>+</Button>
           </div>
           <br />
-          {stockMessage}
-          {/* <Button className="nav-color bg-lightBlue border-0" onClick={onAdd}>
-            Agregar al carrito
-          </Button> */}
+          {stock === 0 
+          ? <h4 class="text-danger">SIN STOCK</h4>
+          : <Button className="nav-color bg-lightBlue border-0" onClick={onAdd}>
+              Agregar al carrito
+            </Button>
+          }
           <br />
         </Card.Body>
       </Card>

@@ -2,41 +2,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap');
 
 .nav-color{
-    background-color: #f58de7 !important;
+  background-color: #f58de7 !important;
 }
 
 .brand-name{
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 .nav-links{
-    font-family: 'Open Sans Condensed', sans-serif;
-    margin-left: 50px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin-left: 50px;
 }
 
 .nav-link-item{
-    color: rgb(10, 11, 14) !important;
-    margin-left: 25px;
-    font-weight: bold;
-    font-size: large;
+  color: rgb(10, 11, 14) !important;
+  font-weight: bold;
+  font-size: large;
+  margin-left: 25px;
 }
 
 .cart{
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .cart:hover{
-    cursor: pointer;
-    color: rgb(78, 78, 78);
+  cursor: pointer;
+  color: rgb(78, 78, 78);
 }
 
 .cart-div{
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .search-form{
-    margin-left: 1rem ;
-    margin-right: 2rem ;
+  margin-left: 1rem ;
+  margin-right: 2rem ;
 }
 
 .search-bar:focus{
@@ -45,36 +45,40 @@
 }
 
 .quantity {
-    max-width: 4rem;
-    text-align: center;
-    border: solid rgb(0, 0, 0);
-    border-width: 2px 2px;
-    font-size: 20px;
-    height: 36px;
-    font-weight: bold;
-  }
+  border: solid rgb(0, 0, 0);
+  border-width: 2px 2px;
+  font-size: 20px;
+  font-weight: bold;
+  height: 36px;
+  max-width: 4rem;
+  text-align: center;
+}
   
-  .productCard{
-    height: 32rem !important;
-    width: 20rem !important;
-  }
+.productCard{
+  height: 32rem !important;
+  width: 20rem !important;
+}
 
-  .bg-grey{
-    background-color: #f6f6f6 !important;
-  }
+.cardImage:hover{
+  cursor: pointer;
+}
 
-  .bg-lightBlue{
-    background-color: #23a7ff !important;
-  }
+.bg-grey{
+  background-color: #f6f6f6 !important;
+}
 
-  .bc-strongPink{
-    border-color: #ff53ff !important;
-  }
+.bg-lightBlue{
+  background-color: #23a7ff !important;
+}
 
-  .bc-pink{
-    border-color: #f58de7 !important;
-  }
+.bc-strongPink{
+  border-color: #ff53ff !important;
+}
 
-  .bc-lightBlue{
-    border-color: #23a7ff !important;
-  }
+.bc-pink{
+  border-color: #f58de7 !important;
+}
+
+.bc-lightBlue{
+  border-color: #23a7ff !important;
+}
