@@ -14,6 +14,7 @@ export const promises = (
         setCurrentProducts(result);
       })
       .catch((error) => {
+        
         alert(`Error: ${error}`);
       })
       .finally(() => {

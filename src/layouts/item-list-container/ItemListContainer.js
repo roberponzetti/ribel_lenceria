@@ -1,12 +1,12 @@
 import React from 'react'
 
-function ItemListContainer({greeting}) {
+const ItemListContainer = ({greeting, children}) => {
     return (
         <div>
             <h3 className="mt-3">{greeting}</h3>
-            {/* {children} */}
+            {children}
         </div>
-    )
-}
+    );
+};
 
-export default ItemListContainer
+export default ItemListContainer;

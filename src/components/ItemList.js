@@ -20,7 +20,7 @@ const ItemList = ({products}) => {
         <div>
             {isLoading && <h3>Loading...</h3>}
             {currentProducts.map((product) => (
-                <Item key={product.id} pictureUrl={product.pictureUrl} {...product} />
+                <Item key={product.id} {...product} />
             ))}
         </div>
     );

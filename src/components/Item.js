@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './../styles.css';
 
-const Item = (id, title, description, price, initial, stock, pictureUrl) => {
+const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
 
     const [amount, setAmount] = useState(initial);
 
@@ -58,7 +58,7 @@ const Item = (id, title, description, price, initial, stock, pictureUrl) => {
                 </div>
                 <br />
                 {stock === 0 
-                ? <h4 class="text-danger">SIN STOCK</h4>
+                ? <h4 className="text-danger">SIN STOCK</h4>
                 : <Button className="nav-color bg-lightBlue border-0" onClick={onAdd}>
                     Agregar al carrito
                     </Button>
