@@ -17,8 +17,12 @@ const ItemList = ({products}) => {
     }, [products]);
 
     return (
-        <div>
-            {isLoading && <h3>Loading...</h3>}
+        <div className="mt-2">
+            {isLoading && 
+                <div className="spinner-border spinner-color" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            }
             {currentProducts.map((product) => (
                 <Item key={product.id} {...product} />
             ))}

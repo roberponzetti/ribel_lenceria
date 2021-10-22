@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import {Col, Row} from 'react-bootstrap';
 import './../styles.css';
 
 const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
@@ -31,6 +32,7 @@ const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
     }
     return (
         <div className="m-5">
+            <Row>
             <Card className="productCard bg-grey bc-lightBlue">
                 <Card.Title>{title}</Card.Title>
                 <Card.Img
@@ -66,6 +68,7 @@ const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
                 <br />
                 </Card.Body>
             </Card>
+            </Row>
         </div>
     )
 }

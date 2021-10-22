@@ -1,9 +1,10 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import './../../styles.css';
-import CartWidget from './CartWidget';
+import CartContainer from '../../layouts/cart-container/CartContainer';
 import SearchWidget from './SearchWidget';
 import { Form, FormControl, InputGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const NavMenu = () => {
     return (
@@ -21,7 +22,9 @@ const NavMenu = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto nav-links">
-                        <Nav.Link href="/productos" className="nav-link-item">Productos</Nav.Link>
+                        <Nav.Link href="/productos" className="nav-link-item">
+                            <Link to="/">Productos</Link>
+                        </Nav.Link>
                         <Nav.Link href="/conjuntos" className="nav-link-item">Conjuntos</Nav.Link>
                         <Nav.Link href="/contacto" className="nav-link-item">Contacto</Nav.Link>
                         <Nav.Link href="/faqs" className="nav-link-item">Preguntas frecuentes</Nav.Link>
@@ -41,7 +44,7 @@ const NavMenu = () => {
                         </InputGroup>
                     </Form.Group>
                 </Form>
-                <CartWidget cantArt="4" />
+                <CartContainer cantArt="4" />
             </Navbar>
         </>
     );
