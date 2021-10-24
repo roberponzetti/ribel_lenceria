@@ -5,6 +5,7 @@ import ItemList from '../components/ItemList';
 import NavBar from '../components/nav-bar/NavBar';
 import { products } from '../data/products';
 import NotFound from '../layouts/not-found/NotFound'
+import ItemDetailContainer from '../layouts/item-detail-container/ItemDetailContainer';
 
 const Routes = () => {
     return (
@@ -12,9 +13,10 @@ const Routes = () => {
             <NavBar />
             <Switch>
                 <Route exact path="/">
-                    <ItemListContainer>
+                    {/* <ItemListContainer>
                         <ItemList products={products} />
-                    </ItemListContainer>
+                    </ItemListContainer> */}
+                    <ItemDetailContainer />
                 </Route>
                 <Route exact path="*">
                     <NotFound />

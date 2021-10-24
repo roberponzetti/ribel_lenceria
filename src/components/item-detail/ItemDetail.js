@@ -1,19 +1,18 @@
 import React, {useState} from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import './../styles.css';
+import '../../styles.css';
 
-const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
-
-    const [amount, setAmount] = useState(initial);
+const ItemDetail = ({...currentProduct}) => {
+    const [amount, setAmount] = useState(currentProduct.initial);
 
     const sub = () => {
-        if (initial < amount) {
+        if (currentProduct.initial < amount) {
         setAmount(amount - 1);
         }
     };
     const sum = () => {
-        if (amount < stock) {
+        if (amount < currentProduct.stock) {
         setAmount(amount + 1);
         }
     };
@@ -27,37 +26,37 @@ const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
     };
 
     const handleProductDetailsClick = () => {
-        alert(`Aquí mostraremos el detalle del producto ${id}`)
+        alert(`Aquí mostraremos el detalle del producto ${currentProduct.id}`)
     }
     return (
         <div className="m-5">
             <Card className="productCard bg-grey bc-lightBlue">
-                <Card.Title>{title}</Card.Title>
+                <Card.Title>{currentProduct.title}</Card.Title>
                 <Card.Img
                 className="cardImage"
                 variant="top"
-                src={pictureUrl}
+                src={currentProduct.pictureUrl}
                 height="300"
                 width="200"
                 onClick={handleProductDetailsClick}
                 />
                 <Card.Body>
-                <Card.Text>{description}</Card.Text>
-                <Card.Text>{price}</Card.Text>
+                <Card.Text>{currentProduct.description}</Card.Text>
+                <Card.Text>{currentProduct.price}</Card.Text>
                 <div className="input-group justify-content-center d-block">
                     <Button className="bg-lightBlue border-0 align-bottom" onClick={sub}>-</Button>
                     <input
                     className="quantity bc-lightBlue"
                     type="text"
-                    min={initial}
-                    max={stock}
+                    min={currentProduct.initial}
+                    max={currentProduct.stock}
                     value={amount}
                     readOnly
                     />
                     <Button className="bg-lightBlue border-0 align-bottom" onClick={sum}>+</Button>
                 </div>
                 <br />
-                {stock === 0 
+                {currentProduct.stock === 0 
                 ? <h4 className="text-danger">SIN STOCK</h4>
                 : <Button className="nav-color bg-lightBlue border-0" onClick={onAdd}>
                     Agregar al carrito
@@ -70,7 +69,4 @@ const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
     )
 }
 
-export default Item
-
-
-
+export default ItemDetail
