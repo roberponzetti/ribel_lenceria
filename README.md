@@ -4,6 +4,8 @@
 
 - #### I'm a software developer and actually I'm learning React JS 
 
+![ribelGif1](https://user-images.githubusercontent.com/51685639/139351644-fac9f2ed-a7bb-4672-89a2-68af434af68d.gif)
+
 
 # Getting Started with Create React App
 
