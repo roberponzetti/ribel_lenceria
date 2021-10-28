@@ -3,8 +3,8 @@ import Nav from 'react-bootstrap/Nav';
 import './../../styles.css';
 import CartContainer from '../../layouts/cart-container/CartContainer';
 import SearchWidget from './SearchWidget';
-import { Form, FormControl, InputGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Form, FormControl, InputGroup, NavDropdown } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavMenu = () => {
     return (
@@ -22,12 +22,44 @@ const NavMenu = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto nav-links">
-                        <Nav.Link href="/productos" className="nav-link-item">
-                            <Link to="/">Productos</Link>
+                        <Nav.Link className="nav-link-item" to="/products">
+                            <Link to="/products">
+                                Productos
+                            </Link>
                         </Nav.Link>
-                        <Nav.Link href="/conjuntos" className="nav-link-item">Conjuntos</Nav.Link>
-                        <Nav.Link href="/contacto" className="nav-link-item">Contacto</Nav.Link>
-                        <Nav.Link href="/faqs" className="nav-link-item">Preguntas frecuentes</Nav.Link>
+                        <NavDropdown className="nav-link-item" title="Categorías" id="nav-dropdown">
+                            <NavDropdown.Item >
+                                <Link to="/category/shirts">
+                                    Remeras
+                                </Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item >
+                                <Link to="/category/pants">
+                                    Pantalones
+                                </Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item >
+                                <Link to="/category/socks">
+                                    Medias
+                                </Link>
+                            </NavDropdown.Item>
+                        </NavDropdown>
+                        <Nav.Link className="nav-link-item">
+                            <Link to="/outfits">
+                                Conjuntos
+                            </Link>
+                        </Nav.Link>
+                        <Nav.Link className="nav-link-item">
+                            <Link to="/contact">
+                                Contacto
+                            </Link>
+                        </Nav.Link>
+                        <Nav.Link className="nav-link-item">
+                            <Link to="/faqs">
+                                FAQs
+                            </Link>
+                        </Nav.Link>
+                        
                     </Nav>
                 </Navbar.Collapse>
                 <Form className="search-form">

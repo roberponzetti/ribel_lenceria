@@ -1,5 +1,7 @@
 export const promises = (
     products,
+    // categoryId,
+
     setIsLoading,
     setCurrentProducts
   ) => {

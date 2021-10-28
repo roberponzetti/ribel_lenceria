@@ -6,7 +6,8 @@ export const products = [
         price: "$500",
         initial: 1,
         stock: 10,
-        pictureUrl: "./img/art1_ribel.jpg"
+        pictureUrl: "./img/art1_ribel.jpg",
+        category: "socks",
     },
     { 
         id: "2", 
@@ -15,6 +16,7 @@ export const products = [
         price: "$1200",
         initial: 1,
         stock: 0,
-        pictureUrl: "./img/art2_ribel.jpg"
+        pictureUrl: "./img/art2_ribel.jpg",
+        category: "shirts"
     },
 ];

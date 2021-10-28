@@ -25,6 +25,15 @@
   margin-left: 25px;
 }
 
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+#nav-link:hover > .dropdown-menu{
+  display: block;
+}
+
 .cart{
   font-size: 1.5em;
 }

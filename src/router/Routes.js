@@ -13,9 +13,16 @@ const Routes = () => {
             <NavBar />
             <Switch>
                 <Route exact path="/">
-                    {/* <ItemListContainer>
+                    <ItemListContainer>
                         <ItemList products={products} />
-                    </ItemListContainer> */}
+                    </ItemListContainer>
+                </Route>
+                <Route exact path="/category/:categoryId">
+                    <ItemListContainer>
+                        <ItemList products={products} />
+                    </ItemListContainer>
+                </Route>
+                <Route exact path="/item/:itemId">
                     <ItemDetailContainer />
                 </Route>
                 <Route exact path="*">
