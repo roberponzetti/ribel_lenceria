@@ -1,22 +1,25 @@
 import React, {useEffect, useState} from 'react'
 import ItemDetail from '../../components/item-detail/ItemDetail'
 import { promise } from '../../helpers/promise'
-import { product } from '../../data/product'
+import { products } from '../../data/products'
+import { useParams } from 'react-router'
 
 
 const ItemDetailContainer = () => {   
-    const [currentProduct, setCurrentProduct] = useState({});
+    const { itemId } = useParams();
+    const [item, setItem] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        if(product){
+        if(item){
             promise(
-                product,
+                products,
+                itemId,
                 setIsLoading,
-                setCurrentProduct
+                setItem
             );
         }
-    }, [product]);
+    }, [itemId]);
 
     return (
         <div className="mt-2">
@@ -25,7 +28,7 @@ const ItemDetailContainer = () => {
                     <span className="sr-only">Loading...</span>
                 </div>
             }{!isLoading &&
-                <ItemDetail {...currentProduct} />     
+                <ItemDetail {...item} />     
             }
         </div>
     );

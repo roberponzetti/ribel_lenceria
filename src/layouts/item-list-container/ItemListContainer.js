@@ -1,29 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
+import ItemList from '../../components/ItemList';
 import { useParams } from 'react-router';
+import { products } from '../../data/products';
 
-const ItemListContainer = ({children}) => {
-    // const { categoryId } = useParams();
-    // const [category, setCategory] = useState(null);
+const ItemListContainer = () => {
+    const { categoryId } = useParams();
+    const [productByCategory, setProductByCategory] = useState(products);
 
-    // useEffect(() => {
-    //     if (categoryId) {
-    //       fetch(`https://rickandmortyapi.com/api/character/${itemId}`)
-    //         .then((response) => {
-    //           return response.json();
-    //         })
-    //         .then((result) => {
-    //           setCategory(result);
-    //         });
-    //     }
-    //   }, [categoryId]);
+    useEffect(() => {
+        if (categoryId) {
+            const findProduct = products.filter(
+              (categoryProp) => categoryProp.category === categoryId 
+            );
+            setProductByCategory(findProduct);
+        }else{
+            setProductByCategory(products);
+        }
+    }, [categoryId]);
     
-    //   if (!category) {
-    //     return null;
-    //   }
+    if (!productByCategory) {
+        return null;
+    }
 
     return (
         <div>
-            {children}
+            <ItemList products={productByCategory} />
         </div>
     );
 };

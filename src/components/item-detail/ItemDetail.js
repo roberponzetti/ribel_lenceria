@@ -2,9 +2,11 @@ import React, {useState} from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import '../../styles.css';
+import { useHistory } from 'react-router-dom';
 
 const ItemDetail = ({...currentProduct}) => {
     const [amount, setAmount] = useState(currentProduct.initial);
+    let history = useHistory();
 
     const sub = () => {
         if (currentProduct.initial < amount) {
@@ -63,6 +65,8 @@ const ItemDetail = ({...currentProduct}) => {
                     </Button>
                 }
                 <br />
+                <br />
+                <Button className="nav-color bg-lightBlue border-0" onClick={() => history.goBack()} >Volver</Button>
                 </Card.Body>
             </Card>
         </div>

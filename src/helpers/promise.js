@@ -1,17 +1,19 @@
 export const promise = (
-    product,
+    products,
+    itemId,
     setIsLoading,
-    setCurrentProduct
+    setItem
   ) => {
     const productsResponse = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(product);
+        const findItem = products.find(item => item.id === itemId)
+        resolve(findItem);
       }, 2000);
     });
   
     productsResponse
       .then((result) => {
-        setCurrentProduct(result);
+        setItem(result);
       })
       .catch((error) => {
         

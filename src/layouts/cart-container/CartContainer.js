@@ -1,12 +1,9 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
-function CartContainer({cantArt}) {
+function CartContainer() {
     return (
-        <div className="cart-div">
-            <FontAwesomeIcon icon={faCartShopping} className="cart" />
-            {cantArt}
+        <div>
+            <h1>My Cart Container</h1>
         </div>
     )
 }

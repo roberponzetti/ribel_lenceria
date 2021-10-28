@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './../styles.css';
+import { Link } from 'react-router-dom';
 
 const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
 
@@ -57,11 +58,12 @@ const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
                     <Button className="bg-lightBlue border-0 align-bottom" onClick={sum}>+</Button>
                 </div>
                 <br />
+                <br />
                 {stock === 0 
-                ? <h4 className="text-danger">SIN STOCK</h4>
-                : <Button className="nav-color bg-lightBlue border-0" onClick={onAdd}>
-                    Agregar al carrito
-                    </Button>
+                ?   <h4 className="text-danger">SIN STOCK</h4>
+                :   <Link to={`../item/${id}`}>
+                        <Button className="nav-color bg-lightBlue border-0">Detalle del producto</Button>
+                    </Link>
                 }
                 <br />
                 </Card.Body>

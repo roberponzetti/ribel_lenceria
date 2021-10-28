@@ -5,23 +5,6 @@ import { promises } from '../helpers/promises';
 const ItemList = ({products}) => {
     const [currentProducts, setCurrentProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    // const { categoryId } = useParams();
-    // const [category, setCategory] = useState(null);
-
-    // useEffect(() => {
-    //     if (categoryId) {
-    //         promises(
-    //             categoryId,
-    //             setIsLoading,
-    //             setCurrentProducts,
-    //             setCategory
-    //         );
-    //     }
-    //   }, [categoryId]);
-    
-    //   if (!category) {
-    //     return null;
-    //   }
 
     useEffect(() => {
         if(products){

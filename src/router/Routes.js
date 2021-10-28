@@ -1,11 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ItemListContainer from '../layouts/item-list-container/ItemListContainer'
-import ItemList from '../components/ItemList';
 import NavBar from '../components/nav-bar/NavBar';
-import { products } from '../data/products';
 import NotFound from '../layouts/not-found/NotFound'
 import ItemDetailContainer from '../layouts/item-detail-container/ItemDetailContainer';
+import CartContainer from '../layouts/cart-container/CartContainer'
 
 const Routes = () => {
     return (
@@ -13,17 +12,19 @@ const Routes = () => {
             <NavBar />
             <Switch>
                 <Route exact path="/">
-                    <ItemListContainer>
-                        <ItemList products={products} />
-                    </ItemListContainer>
+                    <ItemListContainer />
+                </Route>
+                <Route exact path="/products">
+                    <ItemListContainer />
                 </Route>
                 <Route exact path="/category/:categoryId">
-                    <ItemListContainer>
-                        <ItemList products={products} />
-                    </ItemListContainer>
+                    <ItemListContainer />
                 </Route>
                 <Route exact path="/item/:itemId">
                     <ItemDetailContainer />
+                </Route>
+                <Route exact path="/cart">
+                    <CartContainer />
                 </Route>
                 <Route exact path="*">
                     <NotFound />
