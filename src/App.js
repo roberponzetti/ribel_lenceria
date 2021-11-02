@@ -1,7 +1,7 @@
 import './App.css';
-import ItemCount from './components/ItemCount';
 import ItemList from './components/ItemList';
 import NavBar from './components/nav-bar/NavBar';
+import CartContext, { CartProvider } from './context/CartContext';
 import { products } from './data/products';
 import ItemListContainer from './layouts/item-list-container/ItemListContainer';
 import Routes from './router/Routes';
@@ -9,7 +9,11 @@ import Routes from './router/Routes';
 function App() {
   return (
     <div className="App">
-      <Routes />
+      {/* <CartContext.Provider value={[]}> */}
+      {/* <CartProvider> */}
+        <Routes />
+      {/* </CartProvider> */}
+      {/* </CartContext.Provider> */}
       {/* <NavBar/> */}
       {/* <ItemListContainer>
         <ItemList products={products} /> */}

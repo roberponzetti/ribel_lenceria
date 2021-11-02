@@ -4,28 +4,7 @@ import Button from 'react-bootstrap/Button';
 import './../styles.css';
 import { Link } from 'react-router-dom';
 
-const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
-
-    const [amount, setAmount] = useState(initial);
-
-    const sub = () => {
-        if (initial < amount) {
-        setAmount(amount - 1);
-        }
-    };
-    const sum = () => {
-        if (amount < stock) {
-        setAmount(amount + 1);
-        }
-    };
-    
-    const onAdd = () => {
-        if (amount == 1){
-        alert(`Agregaste ${amount} unidad al carrito`)
-        }else{
-        alert(`Agregaste ${amount} unidades al carrito`)
-        }
-    };
+const Item = ({id, title, description, price, stock, pictureUrl}) => {
 
     const handleProductDetailsClick = () => {
         alert(`Aquí mostraremos el detalle del producto ${id}`)
@@ -45,18 +24,6 @@ const Item = ({id, title, description, price, initial, stock, pictureUrl}) => {
                 <Card.Body>
                 <Card.Text>{description}</Card.Text>
                 <Card.Text>{price}</Card.Text>
-                <div className="input-group justify-content-center d-block">
-                    <Button className="bg-lightBlue border-0 align-bottom" onClick={sub}>-</Button>
-                    <input
-                    className="quantity bc-lightBlue"
-                    type="text"
-                    min={initial}
-                    max={stock}
-                    value={amount}
-                    readOnly
-                    />
-                    <Button className="bg-lightBlue border-0 align-bottom" onClick={sum}>+</Button>
-                </div>
                 <br />
                 <br />
                 {stock === 0 
