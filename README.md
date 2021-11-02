@@ -1,3 +1,12 @@
+# Welcome to my first E-Commerce!
+
+- #### I'm Robertino Ponzetti from Argentina 
+
+- #### I'm a software developer and actually I'm learning React JS 
+
+![ribelGif1](https://user-images.githubusercontent.com/51685639/139351644-fac9f2ed-a7bb-4672-89a2-68af434af68d.gif)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
