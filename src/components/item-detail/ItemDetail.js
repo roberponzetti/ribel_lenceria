@@ -1,19 +1,30 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import '../../styles.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import ItemCount from '../item-count/ItemCount';
+import { CartContext } from '../../context/CartContext'
+import { Col } from 'react-bootstrap';
 
-const ItemDetail = ({id, title, description, price, stock, pictureUrl, quantity, setQuantity}) => {
-    // const {addItem} = useContext(CartContext);
+const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity, setQuantity }) => {
+    const location = useLocation();
+    const {addItem} = useContext(CartContext);
+    const {removeItem} = useContext(CartContext);
+
     let history = useHistory();
 
-    const handleProductDetailsClick = () => {
-        alert(`Aquí mostraremos el detalle del producto ${id}`)
+    const handleAddItem = () => {
+        const item = { id, title, price, pictureUrl };
+        addItem({ item, quantity });
     }
+
+    const handleRemoveItem = () => {
+        removeItem(id);
+    }
+
     return (
-        <div className="m-5">
+        <div className="row m-5">
             <Card className="productCard bg-grey bc-lightBlue">
                 <Card.Title>{title}</Card.Title>
                 <Card.Img
@@ -22,25 +33,47 @@ const ItemDetail = ({id, title, description, price, stock, pictureUrl, quantity,
                 src={pictureUrl}
                 height="300"
                 width="200"
-                onClick={handleProductDetailsClick}
                 />
                 <Card.Body>
                 <Card.Text>{description}</Card.Text>
                 <Card.Text>{price}</Card.Text>
-                <ItemCount quantity={quantity} setQuantity={setQuantity} stock={stock} />
-                <br />
-                {quantity > 0 && (
-                    <Link to="/cart">
-                        <Button className="nav-color bg-lightBlue border-0">
+                {location.pathname === "/cart" ? null : (
+                    <>
+                        <ItemCount quantity={quantity} setQuantity={setQuantity} stock={stock} />
+                        <br />
+                        <Button className="nav-color bg-lightBlue border-0" onClick={handleAddItem}>
                             Agregar al carrito
                         </Button>
+                        
+                        {quantity > 0 && (
+                            <>
+                                <br />
+                                <br />
+                                <Link to="/cart" className="text-danger">
+                                    Ir al carrito
+                                </Link>
+                                <br />
+                            </>
+                        )}
                         <br />
-                    </Link>
-                )}
-                <br />
-                <Button className="nav-color bg-lightBlue border-0" onClick={() => history.goBack()} >Volver</Button>
+                        <Button className="nav-color bg-lightBlue border-0" onClick={() => history.goBack()} >Volver</Button>
+                    </>
+                )}  
                 </Card.Body>
-            </Card>
+            </Card>   
+                {location.pathname === "/cart" && (
+                    <>
+                        <Col>
+                            <h3>Cantidad agregada de {title}: {quantity}</h3>
+                        </Col>
+                        <Col>
+                            <Button variant="danger" onClick={handleRemoveItem}>X</Button>
+                        </Col>
+                        <Col>
+                        </Col>
+                    </>
+                )}          
+
         </div>
     )
 }

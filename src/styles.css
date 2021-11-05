@@ -76,6 +76,11 @@ a:-webkit-any-link {
   width: 20rem !important;
 }
 
+.position-right{
+  position: absolute;
+  right: 0;
+}
+
 .cardImage:hover{
   cursor: pointer;
 }

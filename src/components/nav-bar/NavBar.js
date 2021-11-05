@@ -60,7 +60,7 @@ const NavMenu = () => {
                             </Link>
                         </Nav.Link>
                     </Nav>
-                    <Nav>
+                    <Nav className="position-right">
                         <Form className="search-form">
                             <Form.Group>
                                 <InputGroup>

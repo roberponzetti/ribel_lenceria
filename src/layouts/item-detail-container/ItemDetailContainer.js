@@ -1,23 +1,15 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import ItemDetail from '../../components/item-detail/ItemDetail'
 import { promise } from '../../helpers/promise'
 import { products } from '../../data/products'
 import { useParams } from 'react-router'
-import { CartContext } from '../../context/CartContext'
 
-
-const ItemDetailContainer = () => {  
-    // const isTrue = useContext(CartContext); 
+const ItemDetailContainer = () => {   
     const { itemId } = useParams();
+
     const [item, setItem] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [quantity, setQuantity] = useState(0);
-
-    // useEffect(() => {
-    //     if(isTrue){
-    //         alert(`Arreglo vacío!!`);
-    //     }
-    // }, [isTrue])
 
     useEffect(() => {
         if(item){

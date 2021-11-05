@@ -9,11 +9,9 @@ import Routes from './router/Routes';
 function App() {
   return (
     <div className="App">
-      {/* <CartContext.Provider value={[]}> */}
-      {/* <CartProvider> */}
+      <CartProvider>
         <Routes />
-      {/* </CartProvider> */}
-      {/* </CartContext.Provider> */}
+      </CartProvider>
       {/* <NavBar/> */}
       {/* <ItemListContainer>
         <ItemList products={products} /> */}
