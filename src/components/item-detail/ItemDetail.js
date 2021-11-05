@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import '../../styles.css';
@@ -11,12 +11,14 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
     const location = useLocation();
     const {addItem} = useContext(CartContext);
     const {removeItem} = useContext(CartContext);
+    const [isAdded, setIsAdded] = useState(false);
 
     let history = useHistory();
 
     const handleAddItem = () => {
         const item = { id, title, price, pictureUrl };
         addItem({ item, quantity });
+        setIsAdded(true);
     }
 
     const handleRemoveItem = () => {
@@ -39,13 +41,16 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
                 <Card.Text>{price}</Card.Text>
                 {location.pathname === "/cart" ? null : (
                     <>
-                        <ItemCount quantity={quantity} setQuantity={setQuantity} stock={stock} />
-                        <br />
-                        <Button className="nav-color bg-lightBlue border-0" onClick={handleAddItem}>
-                            Agregar al carrito
-                        </Button>
-                        
-                        {quantity > 0 && (
+                        {isAdded === false && (
+                            <>
+                                <ItemCount quantity={quantity} setQuantity={setQuantity} stock={stock} />
+                                <br />
+                                <Button className="nav-color bg-lightBlue border-0" onClick={handleAddItem}>
+                                    Agregar al carrito
+                                </Button>
+                            </>
+                        )}
+                        {(quantity > 0 && isAdded === true) && (
                             <>
                                 <br />
                                 <br />
@@ -55,6 +60,7 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
                                 <br />
                             </>
                         )}
+                        <br />
                         <br />
                         <Button className="nav-color bg-lightBlue border-0" onClick={() => history.goBack()} >Volver</Button>
                     </>
