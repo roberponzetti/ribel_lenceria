@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
     }, [itemId]);
 
     return (
-        <div className="mt-2">
+        <div className="mt-2 wrapItems">
             {isLoading && 
                 <div className="spinner-border spinner-color" role="status">
                     <span className="sr-only">Loading...</span>

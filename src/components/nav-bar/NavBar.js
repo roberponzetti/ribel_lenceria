@@ -9,7 +9,7 @@ import CartWidget from '../cart-widget/CartWidget';
 const NavMenu = () => {
     return (
         <>
-            <Navbar expand="lg" variant="dark" className="nav-color">
+            <Navbar expand="lg" variant="dark" className="bg-strongPink">
                 <Navbar.Brand href="/" className="brand-name">
                 <img
                     alt=""
@@ -29,17 +29,17 @@ const NavMenu = () => {
                         </Nav.Link>
                         <NavDropdown className="nav-link-item" title="Categorías" id="nav-dropdown">
                             <NavDropdown.Item >
-                                <Link to="/category/flipFlops">
+                                <Link className="dropdown-items" to="/category/flipFlops">
                                     Ojotas
                                 </Link>
                             </NavDropdown.Item>
                             <NavDropdown.Item >
-                                <Link to="/category/shorts">
+                                <Link className="dropdown-items" to="/category/shorts">
                                     Pantalones
                                 </Link>
                             </NavDropdown.Item>
                             <NavDropdown.Item >
-                                <Link to="/category/socks">
+                                <Link className="dropdown-items" to="/category/socks">
                                     Medias
                                 </Link>
                             </NavDropdown.Item>

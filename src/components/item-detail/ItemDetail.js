@@ -27,8 +27,8 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
 
     return (
         <div className="row m-5">
-            <Card className="productCard bg-grey bc-lightBlue">
-                <Card.Title>{title}</Card.Title>
+            <Card className="productCard bg-card bc-strongPink">
+                <Card.Title className="titleFont">{title}</Card.Title>
                 <Card.Img
                 className="cardImage"
                 variant="top"
@@ -37,15 +37,15 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
                 width="200"
                 />
                 <Card.Body>
-                <Card.Text>{description}</Card.Text>
-                <Card.Text>{price}</Card.Text>
+                <Card.Text className="descriptionFont">{description}</Card.Text>
+                <Card.Text className="priceFont mt-5">{price}</Card.Text>
                 {location.pathname === "/cart" ? null : (
                     <>
                         {isAdded === false && (
                             <>
                                 <ItemCount quantity={quantity} setQuantity={setQuantity} stock={stock} />
                                 <br />
-                                <Button className="nav-color bg-lightBlue border-0" onClick={handleAddItem}>
+                                <Button className="bg-strongPink border-0" onClick={handleAddItem}>
                                     Agregar al carrito
                                 </Button>
                             </>
@@ -62,7 +62,7 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
                         )}
                         <br />
                         <br />
-                        <Button className="nav-color bg-lightBlue border-0" onClick={() => history.goBack()} >Volver</Button>
+                        <Button className="bg-strongPink border-0" onClick={() => history.goBack()} >Volver</Button>
                     </>
                 )}  
                 </Card.Body>

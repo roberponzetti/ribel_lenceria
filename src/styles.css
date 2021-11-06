@@ -1,16 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@300&display=swap');
 
-.nav-color{
-  background-color: #f58de7 !important;
+/* ***** fonts ***** */
+
+.titleFont{
+  font-family: 'Dongle', sans-serif;
+  font-size: 40px !important;
+  margin: 0 !important;
 }
 
-.spinner-color{
-  color: #f58de7 !important;
+.descriptionFont{
+  font-family: 'Raleway', sans-serif;
+  font-size: large !important;
 }
 
-.brand-name{
-  padding-left: 20px;
+.priceFont{
+  font-family: 'Gluten', cursive;
+  font-size: 30px !important;
+}
+
+.sinStock{
+  font-family: 'Dongle', sans-serif;
+  font-size: xxx-large !important;
+  color: #f58;
 }
 
 .nav-links{
@@ -18,8 +33,42 @@
   margin-left: 50px;
 }
 
+.dropdown-items{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.dropdown-items:hover{
+  background-color: #ffeffd;
+}
+
+/* ***** colours ***** */
+
+.bg-card{
+  background-color: #ffeffd !important;
+}
+
+.bg-strongPink{
+  background-color: #f58 !important;
+}
+
+.bc-strongPink{
+  border-color: #f58 !important;
+}
+
+.spinner-color{
+  color: #f58 !important;
+}
+
+.brand-name{
+  padding-left: 20px;
+}
+
 .nav-link{
   color:rgb(0, 0, 0) !important;
+}
+
+.nav-link:hover, .nav-link-item:hover{
+  color: #61001d !important;
 }
 
 .nav-link-item{
@@ -44,7 +93,7 @@ a:-webkit-any-link {
 
 .cart:hover{
   cursor: pointer;
-  color: rgb(78, 78, 78);
+  color: #61001d;
 }
 
 .cart-div{
@@ -57,18 +106,23 @@ a:-webkit-any-link {
 }
 
 .search-bar:focus{
-  border-color: #ff53ff !important;
+  border-color: #ff3a75 !important;
   box-shadow: 2px 2px 10px #ff00aae3 !important;
 }
 
 .quantity {
-  border: solid rgb(0, 0, 0);
+  border: solid;
   border-width: 2px 2px;
-  font-size: 20px;
-  font-weight: bold;
+  color: #f58 !important;
   height: 36px;
   max-width: 4rem;
   text-align: center;
+}
+
+.wrapItems{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
   
 .productCard{
@@ -83,24 +137,4 @@ a:-webkit-any-link {
 
 .cardImage:hover{
   cursor: pointer;
-}
-
-.bg-grey{
-  background-color: #f6f6f6 !important;
-}
-
-.bg-lightBlue{
-  background-color: #23a7ff !important;
-}
-
-.bc-strongPink{
-  border-color: #ff53ff !important;
-}
-
-.bc-pink{
-  border-color: #f58de7 !important;
-}
-
-.bc-lightBlue{
-  border-color: #23a7ff !important;
 }

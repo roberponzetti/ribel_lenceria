@@ -16,16 +16,16 @@ const ItemCount = ({quantity, setQuantity, stock}) => {
 
     return (
         <div className="input-group justify-content-center d-block">
-            <Button className="bg-lightBlue border-0 align-bottom" onClick={handleSub}>-</Button>
+            <Button className="bg-strongPink border-0 align-bottom shadow-none" onClick={handleSub}>-</Button>
             <input
-              className="quantity bc-lightBlue"
+              className="quantity bc-strongPink priceFont"
               type="text"
               min={1}
               max={stock}
               value={quantity}
               readOnly
             />
-            <Button className="bg-lightBlue border-0 align-bottom" onClick={handleSum}>+</Button>
+            <Button className="bg-strongPink border-0 align-bottom shadow-none" onClick={handleSum}>+</Button>
         </div>
     )
 }

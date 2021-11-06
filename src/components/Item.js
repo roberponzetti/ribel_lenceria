@@ -11,8 +11,8 @@ const Item = ({id, title, description, price, stock, pictureUrl}) => {
     }
     return (
         <div className="m-5">
-            <Card className="productCard bg-grey bc-lightBlue">
-                <Card.Title>{title}</Card.Title>
+            <Card className="productCard bg-card bc-strongPink">
+                <Card.Title className="titleFont">{title}</Card.Title>
                 <Card.Img
                 className="cardImage"
                 variant="top"
@@ -22,14 +22,14 @@ const Item = ({id, title, description, price, stock, pictureUrl}) => {
                 onClick={handleProductDetailsClick}
                 />
                 <Card.Body>
-                <Card.Text>{description}</Card.Text>
-                <Card.Text>{price}</Card.Text>
+                <Card.Text className="descriptionFont">{description}</Card.Text>
+                <Card.Text className="priceFont mt-4">{price}</Card.Text>
                 <br />
                 <br />
                 {stock === 0 
-                ?   <h4 className="text-danger">SIN STOCK</h4>
+                ?   <h4 className="sinStock">SIN STOCK</h4>
                 :   <Link to={`../item/${id}`}>
-                        <Button className="nav-color bg-lightBlue border-0">Detalle del producto</Button>
+                        <Button className="bg-strongPink border-0">Detalle del producto</Button>
                     </Link>
                 }
                 <br />
