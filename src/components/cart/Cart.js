@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button } from 'react-bootstrap';
 import ItemDetail from '../item-detail/ItemDetail'
 
 const Cart = ({ items }) => {
