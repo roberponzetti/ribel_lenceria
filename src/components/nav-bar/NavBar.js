@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import CartWidget from '../cart-widget/CartWidget';
 
 const NavMenu = () => {
+ 
     return (
         <>
             <Navbar expand="lg" variant="dark" className="bg-strongPink">
@@ -77,7 +78,7 @@ const NavMenu = () => {
                         </Form>
                         <Nav.Link className="nav-link-item">
                             <Link to="/cart">
-                                <CartWidget cantArt="4"/>
+                                <CartWidget />
                             </Link>
                         </Nav.Link>
                     </Nav>

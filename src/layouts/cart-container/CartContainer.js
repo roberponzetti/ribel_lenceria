@@ -1,27 +1,29 @@
 import React, { useContext } from 'react'
-import { Button, Row } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Cart from '../../components/cart/Cart'
 import { CartContext } from '../../context/CartContext'
 
-function CartContainer() {
+const CartContainer = () => {
 
     const {items} = useContext(CartContext)
     const {clear} = useContext(CartContext);
+    const {totalAmount} = useContext(CartContext);
 
     const handleClearCart = () => {
         clear();
     }
 
     return (
-        <div>
-            
+        <div>     
             {items.length > 0 ? (
                 <>
                     <Button className="mt-3 mb-5 bg-strongPink border-0" onClick={handleClearCart}>VACIAR CARRITO</Button>
                     <Cart items={items}/>
                     <Row className="p-0 row-margin bg-lightYellow align-items-center">
-                        <h1>Total:</h1>
+                        <Col md={{ span: 4, offset: 8 }}>
+                            <h2 className="mt-5">Total: $ {totalAmount()}</h2>
+                        </Col>
                     </Row>
                 </>
             ): (

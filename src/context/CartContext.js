@@ -5,8 +5,9 @@ export const CartContext = createContext([]);
 export const CartProvider = ({defaultValue = [], children}) => {
     const [items, setItems] = useState(defaultValue);
 
-    const addItem = (currentItem, quantity) => {
+    const addItem = (currentItem) => {
         if (items.some(({item}) => item.id === currentItem.item.id)){
+
             return;
         }
         setItems([...items, currentItem]);
@@ -21,7 +22,11 @@ export const CartProvider = ({defaultValue = [], children}) => {
 
     const clear = () => setItems(defaultValue);
 
+    const totalAmount = () => items.reduce((sum,item) => sum + item.item.price * item.quantity,0 );
+
+    const itemsInCart = () => items.reduce((sum,item) => sum + item.quantity,0 );
+
     // const isInCart = (itemId) => {}
 
-    return <CartContext.Provider value={{items,addItem,removeItem,clear}}>{children}</CartContext.Provider>
+    return <CartContext.Provider value={{items,addItem,removeItem,clear,totalAmount,itemsInCart}}>{children}</CartContext.Provider>
 }

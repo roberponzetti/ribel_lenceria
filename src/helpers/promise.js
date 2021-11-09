@@ -8,7 +8,7 @@ export const promise = (
       setTimeout(() => {
         const findItem = products.find(item => item.id === itemId)
         resolve(findItem);
-      }, 2000);
+      }, 1000);
     });
   
     productsResponse

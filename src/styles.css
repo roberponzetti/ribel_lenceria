@@ -75,9 +75,9 @@
   color:rgb(0, 0, 0) !important;
 }
 
-.nav-link:hover, .nav-link-item:hover{
+/* .nav-link:hover, .nav-link-item:hover{
   color: #61001d !important;
-}
+} */
 
 .nav-link-item{
   color: rgb(10, 11, 14) !important;
@@ -106,7 +106,7 @@ a:-webkit-any-link {
 
 .cart:hover{
   cursor: pointer;
-  color: #61001d;
+  /* color: #61001d; */
 }
 
 .cart-div{

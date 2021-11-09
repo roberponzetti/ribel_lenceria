@@ -23,7 +23,7 @@ const Item = ({id, title, description, price, stock, pictureUrl}) => {
                 />
                 <Card.Body>
                 <Card.Text className="descriptionFont">{description}</Card.Text>
-                <Card.Text className="priceFont mt-4">{price}</Card.Text>
+                <Card.Text className="priceFont mt-4">$ {price}</Card.Text>
                 <br />
                 <br />
                 {stock === 0 

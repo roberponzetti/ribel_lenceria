@@ -39,7 +39,7 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
                     />
                     <Card.Body>
                     <Card.Text className="descriptionFont">{description}</Card.Text>
-                    <Card.Text className="priceFont mt-5">{price}</Card.Text>
+                    <Card.Text className="priceFont mt-5">$ {price}</Card.Text>
                     {isAdded === false && (
                         <>
                             <ItemCount quantity={quantity} setQuantity={setQuantity} stock={stock} />
