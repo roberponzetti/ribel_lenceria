@@ -9,9 +9,9 @@ const CartWidget = () => {
     return (
         <div className="cart-div">
             <FontAwesomeIcon icon={faCartShopping} className="cart" />
-            {/* {itemsInCart() > 0 && ( */}
-               {itemsInCart()}
-            {/* )} */}
+            {itemsInCart() !== 0 && 
+                itemsInCart()
+            }
         </div>
     )
 }

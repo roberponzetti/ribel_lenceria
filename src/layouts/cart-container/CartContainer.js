@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Button, Col, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Cart from '../../components/cart/Cart'
 import { CartContext } from '../../context/CartContext'
@@ -14,6 +14,10 @@ const CartContainer = () => {
         clear();
     }
 
+    const goToPayment = () => {
+        alert("Ir a /pagar");
+    }
+
     return (
         <div>     
             {items.length > 0 ? (
@@ -23,6 +27,11 @@ const CartContainer = () => {
                     <Row className="p-0 row-margin bg-lightYellow align-items-center">
                         <Col md={{ span: 4, offset: 8 }}>
                             <h2 className="mt-5">Total: $ {totalAmount()}</h2>
+                        </Col>
+                    </Row>
+                    <Row className="p-0 row-margin bg-lightYellow align-items-center">
+                        <Col md={{ span: 4, offset: 8 }}>
+                        <Button className="mt-5 bg-strongPink border-0" onClick={goToPayment}>FINALIZAR COMPRA</Button>
                         </Col>
                     </Row>
                 </>
