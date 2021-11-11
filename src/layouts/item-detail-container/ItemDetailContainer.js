@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import ItemDetail from '../../components/item-detail/ItemDetail'
-import { promise } from '../../helpers/promise'
-import { products } from '../../data/products'
 import { useParams } from 'react-router'
+import { getFirestore } from '../../firebase'
 
 const ItemDetailContainer = () => {   
     const { itemId } = useParams();
@@ -11,16 +10,38 @@ const ItemDetailContainer = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [quantity, setQuantity] = useState(0);
 
+    // useEffect(() => {
+    //     if(item){
+    //         promise(
+    //             products,
+    //             itemId,
+    //             setIsLoading,
+    //             setItem
+    //         );
+    //     }
+    // }, [itemId]);
+
     useEffect(() => {
-        if(item){
-            promise(
-                products,
-                itemId,
-                setIsLoading,
-                setItem
-            );
-        }
-    }, [itemId]);
+        const db = getFirestore();
+        const itemCollection = db.collection('products')
+        const currentItem = itemCollection.doc(itemId)
+        
+        currentItem.get().then(document => {
+            if(!document.exists){
+                console.log("No item");
+                return;
+            }
+            setItem({
+                id: document,
+                ...document.data()
+            })
+        }).catch(error => console.log(error)).finally(() => setIsLoading(false))
+
+    }, [itemId])
+
+    if(!item){
+        return null;
+    }
 
     return (
         <div className="mt-2 wrapItems">
