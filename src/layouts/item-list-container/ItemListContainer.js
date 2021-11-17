@@ -8,31 +8,18 @@ const ItemListContainer = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [products, setProducts] = useState([])
 
-    // useEffect(() => {
-    //     if (categoryId) {
-    //         const findProduct = products.filter(
-    //           (categoryProp) => categoryProp.category === categoryId 
-    //         );
-    //         setProductByCategory(findProduct);
-    //     }else{
-    //         setProductByCategory(products);
-    //     }
-    // }, [categoryId]);
-
     useEffect(() => {
         const db = getFirestore();
         const itemCollection = db.collection('products');
 
         if(!categoryId){
-            itemCollection.get().then(querySnapshot => {
-                console.log(querySnapshot);
+            itemCollection.get().then((querySnapshot) => {
                 if (querySnapshot.size === 0) {
-                    console.log("No items");
                     return;
                 }
-                setProducts(querySnapshot.docs.map(document => ({
+                setProducts(querySnapshot.docs.map((document) => ({
                     id: document.id,
-                    ...document.data()
+                    ...document.data(),
                 })))
             }).catch(error => console.log(error)).finally(() => setIsLoading(false));
             return
@@ -46,21 +33,16 @@ const ItemListContainer = () => {
                 console.log("No items");
                 return;
             }
-            setProducts(querySnapshot.docs.map(document => ({
+            setProducts(querySnapshot.docs.map((document) => ({
                 id: document.id,
-                ...document.data()
+                ...document.data(),
             })))
         }).catch(error => console.log(error)).finally(() => setIsLoading(false))
 
     }, [categoryId])
-    
-    // if (!productByCategory) {
-    //     return null;
-    // }
 
     return (
         <div>
-            {/* <ItemList products={productByCategory} /> */}
             {isLoading ? (
                 <h1>Loading...</h1>
             ) : (

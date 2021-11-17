@@ -16,7 +16,7 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
     let history = useHistory();
 
     const handleAddItem = () => {
-        const item = { id, title, price, pictureUrl,stock };
+        const item = { id, title, price, pictureUrl, stock };
         addItem({ item, quantity });
         setIsAdded(true);
     }

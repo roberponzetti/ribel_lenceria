@@ -5,6 +5,7 @@ import NavBar from '../components/nav-bar/NavBar';
 import NotFound from '../layouts/not-found/NotFound'
 import ItemDetailContainer from '../layouts/item-detail-container/ItemDetailContainer';
 import CartContainer from '../layouts/cart-container/CartContainer'
+import FinishPurchaseContainer from '../layouts/finish-purchase-container/FinishPurchaseContainer';
 
 const Routes = () => {
     return (
@@ -25,6 +26,9 @@ const Routes = () => {
                 </Route>
                 <Route exact path="/cart">
                     <CartContainer />
+                </Route>
+                <Route exact path="/purchase">
+                    <FinishPurchaseContainer />
                 </Route>
                 <Route exact path="*">
                     <NotFound />

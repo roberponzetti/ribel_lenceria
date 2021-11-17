@@ -30,13 +30,8 @@ const NavMenu = () => {
                         </Nav.Link>
                         <NavDropdown className="nav-link-item" title="Categorías" id="nav-dropdown">
                             <NavDropdown.Item >
-                                <Link className="dropdown-items" to="/category/flipFlops">
-                                    Ojotas
-                                </Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item >
-                                <Link className="dropdown-items" to="/category/shorts">
-                                    Pantalones
+                                <Link className="dropdown-items" to="/category/lingerie">
+                                    Lencería
                                 </Link>
                             </NavDropdown.Item>
                             <NavDropdown.Item >
@@ -44,12 +39,22 @@ const NavMenu = () => {
                                     Medias
                                 </Link>
                             </NavDropdown.Item>
+                            <NavDropdown.Item >
+                                <Link className="dropdown-items" to="/category/flipFlops">
+                                    Ojotas
+                                </Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item >
+                                <Link className="dropdown-items" to="/category/pijama">
+                                    Pijamas
+                                </Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item >
+                                <Link className="dropdown-items" to="/category/underpants">
+                                    Ropa interior masculina
+                                </Link>
+                            </NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link className="nav-link-item">
-                            <Link to="/outfits">
-                                Conjuntos
-                            </Link>
-                        </Nav.Link>
                         <Nav.Link className="nav-link-item">
                             <Link to="/contact">
                                 Contacto

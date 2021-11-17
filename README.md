@@ -11,6 +11,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Styling this project
+
+This project has been stylized with [React-Bootstrap](https://react-bootstrap.github.io)
+
 ## Available Scripts
 
 In the project directory, you can run:

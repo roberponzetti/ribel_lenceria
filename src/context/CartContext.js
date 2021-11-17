@@ -6,8 +6,8 @@ export const CartProvider = ({defaultValue = [], children}) => {
     const [items, setItems] = useState(defaultValue);
 
     const addItem = (currentItem) => {
-        if (items.some(({item}) => item.id === currentItem.item.id)){
-
+        if (items.some(({ item }) => item.id === currentItem.item.id)){
+            console.log("ya existe");
             return;
         }
         setItems([...items, currentItem]);

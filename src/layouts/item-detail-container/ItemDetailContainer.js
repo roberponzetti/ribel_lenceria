@@ -10,33 +10,23 @@ const ItemDetailContainer = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [quantity, setQuantity] = useState(0);
 
-    // useEffect(() => {
-    //     if(item){
-    //         promise(
-    //             products,
-    //             itemId,
-    //             setIsLoading,
-    //             setItem
-    //         );
-    //     }
-    // }, [itemId]);
-
     useEffect(() => {
-        const db = getFirestore();
-        const itemCollection = db.collection('products')
-        const currentItem = itemCollection.doc(itemId)
-        
-        currentItem.get().then(document => {
-            if(!document.exists){
-                console.log("No item");
-                return;
-            }
-            setItem({
-                id: document,
-                ...document.data()
-            })
-        }).catch(error => console.log(error)).finally(() => setIsLoading(false))
-
+        if(itemId){
+            const db = getFirestore();
+            const itemCollection = db.collection('products')
+            const currentItem = itemCollection.doc(itemId)
+            
+            currentItem.get().then((document) => {
+                if(!document.exists){
+                    console.log("No item");
+                    return;
+                }
+                setItem({
+                    id: document.id,
+                    ...document.data(),
+                })
+            }).catch(error => console.log(error)).finally(() => setIsLoading(false))
+        }
     }, [itemId])
 
     if(!item){
