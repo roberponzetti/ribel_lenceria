@@ -1,11 +1,11 @@
 import React, {useContext, useState} from 'react'
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import '../../styles.css';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import ItemCount from '../item-count/ItemCount';
 import { CartContext } from '../../context/CartContext'
 import { Col, Image, Row } from 'react-bootstrap';
+import NumberFormat from 'react-number-format';
 
 const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity, setQuantity }) => {
     const location = useLocation();
@@ -26,44 +26,61 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
     }
 
     return (
-        <div>
-            {location.pathname === "/cart" ? null : (
-                <Card className="productCard bg-card bc-strongPink">
-                    <Card.Title className="titleFont">{title}</Card.Title>
-                    <Card.Img
-                    className="cardImage"
-                    variant="top"
-                    src={pictureUrl}
-                    height="300"
-                    width="200"
-                    />
-                    <Card.Body>
-                    <Card.Text className="descriptionFont">{description}</Card.Text>
-                    <Card.Text className="priceFont mt-5">$ {price}</Card.Text>
-                    {isAdded === false && (
-                        <>
-                            <ItemCount quantity={quantity} setQuantity={setQuantity} stock={stock} />
-                            <br />
-                            <Button className="bg-strongPink border-0" onClick={handleAddItem}>
-                                Agregar al carrito
-                            </Button>
-                        </>
-                    )}
-                    {(quantity > 0 && isAdded === true) && (
-                        <>
-                            <br />
-                            <br />
-                            <Link to="/cart" className="text-danger">
-                                Ir al carrito
-                            </Link>
-                            <br />
-                        </>
-                    )}
-                    <br />
-                    <br />
-                    <Button className="bg-strongPink border-0" onClick={() => history.goBack()} >Volver</Button>
-                    </Card.Body>
-                </Card>  
+        <>
+            {location.pathname === "/cart" || location.pathname === "/purchase" ? null : (
+                <>
+                    <div className="container text-align-left">
+                        <Button className="goback-button bg-strongPink border-0 mb-5" onClick={() => history.goBack()} >VOLVER</Button>
+                    </div>
+                    <Row className="detail-row">
+                        <Col md={{ offset: 2, span: 4 }}>
+                            <div className="item-detail-image">
+                            <Image className="cardImage"
+                                    variant="top"
+                                    src={pictureUrl}
+                                    height="360"
+                                    width="360" />
+                            </div>
+                            <div className="">
+                                Colores
+                            </div>
+                        </Col>
+                        <Col md={{ offset: 1, span: 4, offset: 1 }}>
+                            <div className="d-flex item-detail-info">
+                                <h1 className="titleFont">{title}</h1>  
+                                <p className="descriptionFont mt-2">{description}</p>
+                                <h2 className="priceFont mt-2">
+                                    <NumberFormat
+                                        displayType="text"
+                                        prefix=" $"
+                                        thousandSeparator={true}
+                                        value={price}
+                                    />
+                                </h2>
+                                {isAdded === false && (
+                                    <>
+                                        <ItemCount quantity={quantity} setQuantity={setQuantity} stock={stock} />
+                                        <Button className="bg-strongPink border-0 mt-5 w-50 align-self-center" onClick={handleAddItem}>
+                                            Agregar al carrito
+                                        </Button>
+                                    </>
+                                )}
+                                {(quantity > 0 && isAdded === true) && (
+                                    <>
+                                        <Link to="/cart">
+                                            <Button className="bg-strongPink border-0">
+                                                Ir al carrito
+                                            </Button>
+                                        </Link>
+                                    </>
+                                )}
+                            </div>
+                            <div className="d-flex mt-5 item-detail-info">
+                                Colores disponibles:
+                            </div>
+                        </Col>
+                    </Row>
+                </>
             )}
             {location.pathname === "/cart" && (
                 <Row className="p-0 row-margin bg-lightYellow align-items-center">
@@ -81,14 +98,48 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
                         <h3>Cantidad: {quantity}</h3>
                     </Col>
                     <Col>
-                        <h3>{price}</h3>
+                        <h3>
+                            <NumberFormat
+                                displayType="text"
+                                prefix=" $"
+                                thousandSeparator={true}
+                                value={price}
+                            />
+                        </h3>
                     </Col>
                     <Col>
                         <Button className="deleteItem border-0" onClick={handleRemoveItem}><b>X</b></Button>
                     </Col>
                 </Row>
-            )}          
-        </div>   
+            )} 
+            {location.pathname === "/purchase" && (
+                <>
+                    <Row className="p-0 mt-2 row-margin justify-content-center">
+                            <Image
+                            className="cardImage cardImageSmall"
+                            variant="top"
+                            src={pictureUrl}
+                            />  
+                    </Row>
+                    <Row>
+                        <h5>
+                            <NumberFormat
+                                displayType="text"
+                                prefix=" $"
+                                thousandSeparator={true}
+                                value={price}
+                            />
+                        </h5>
+                    </Row>
+                    <Row>
+                        <h5>{description}</h5>
+                    </Row>
+                    <Row>
+                    <p>Cantidad: {quantity}</p>
+                    </Row>
+                </>
+            )}             
+        </>   
     )
 }
 

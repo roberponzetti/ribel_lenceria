@@ -44,9 +44,11 @@ const ItemListContainer = () => {
     return (
         <div>
             {isLoading ? (
-                <h1>Loading...</h1>
+                <div className="mt-5 spinner-border spinner-color" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
             ) : (
-                <div className="mt-2 wrapItems">
+                <div className="wrapItems">
                     {products.map((product) => (
                         <Item key={product.id} {...product} />
                     ))}

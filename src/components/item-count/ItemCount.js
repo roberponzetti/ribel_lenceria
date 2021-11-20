@@ -15,7 +15,7 @@ const ItemCount = ({quantity, setQuantity, stock}) => {
     };
 
     return (
-        <div className="input-group justify-content-center d-block">
+        <div className="input-group justify-content-center d-block mt-2">
             <Button className="bg-strongPink border-0 align-bottom shadow-none" onClick={handleSub}>-</Button>
             <input
               className="quantity bc-strongPink priceFont"

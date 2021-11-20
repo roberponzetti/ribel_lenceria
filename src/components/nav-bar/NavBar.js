@@ -5,12 +5,22 @@ import SearchWidget from './SearchWidget';
 import { Form, FormControl, InputGroup, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CartWidget from '../cart-widget/CartWidget';
+import { useState } from 'react';
 
 const NavMenu = () => {
+
+    const [show, setShow] = useState(false);
+
+    const showDropdown = (e)=>{
+        setShow(!show);
+    }
+    const hideDropdown = e => {
+        setShow(false);
+    }
  
     return (
         <>
-            <Navbar expand="lg" variant="dark" className="bg-strongPink">
+            <Navbar expand="lg" variant="dark" className="bg-strongPink p-0">
                 <Navbar.Brand href="/" className="brand-name">
                 <img
                     alt=""
@@ -23,51 +33,40 @@ const NavMenu = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto nav-links">
-                        <Nav.Link className="nav-link-item">
-                            <Link to="/products">
-                                Productos
+                        <Link className="nav-link-item" to="/products">
+                            Productos
+                        </Link>
+                        <NavDropdown show={show}
+                            onMouseEnter={showDropdown} 
+                            onMouseLeave={hideDropdown}
+                            className="nav-link-category" 
+                            title="Categorías"
+                            id="basic-nav-dropdown">                       
+                            <Link className="dropdown-items" to="/category/lingerie">
+                                Lencería
                             </Link>
-                        </Nav.Link>
-                        <NavDropdown className="nav-link-item" title="Categorías" id="nav-dropdown">
-                            <NavDropdown.Item >
-                                <Link className="dropdown-items" to="/category/lingerie">
-                                    Lencería
-                                </Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item >
-                                <Link className="dropdown-items" to="/category/socks">
-                                    Medias
-                                </Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item >
-                                <Link className="dropdown-items" to="/category/flipFlops">
-                                    Ojotas
-                                </Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item >
-                                <Link className="dropdown-items" to="/category/pijama">
-                                    Pijamas
-                                </Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item >
-                                <Link className="dropdown-items" to="/category/underpants">
-                                    Ropa interior masculina
-                                </Link>
-                            </NavDropdown.Item>
+                            <Link className="dropdown-items" to="/category/socks">
+                                Medias
+                            </Link>
+                            <Link className="dropdown-items" to="/category/flipFlops">
+                                Ojotas
+                            </Link>
+                            <Link className="dropdown-items" to="/category/pijama">
+                                Pijamas
+                            </Link>
+                            <Link className="dropdown-items" to="/category/underpants">
+                                Ropa interior masculina
+                            </Link>
                         </NavDropdown>
-                        <Nav.Link className="nav-link-item">
-                            <Link to="/contact">
-                                Contacto
-                            </Link>
-                        </Nav.Link>
-                        <Nav.Link className="nav-link-item">
-                            <Link to="/faqs">
-                                FAQs
-                            </Link>
-                        </Nav.Link>
+                        <Link className="nav-link-item" to="/contact">
+                            Contacto
+                        </Link>
+                        <Link className="nav-link-item" to="/faqs">
+                            FAQs
+                        </Link>
                     </Nav>
                     <Nav className="position-right">
-                        <Form className="search-form">
+                        <Form className="search-form" >
                             <Form.Group>
                                 <InputGroup>
                                     <InputGroup.Text>
@@ -81,11 +80,9 @@ const NavMenu = () => {
                                 </InputGroup>
                             </Form.Group>
                         </Form>
-                        <Nav.Link className="nav-link-item">
-                            <Link to="/cart">
-                                <CartWidget />
-                            </Link>
-                        </Nav.Link>
+                        <Link className="cart" to="/cart">
+                            <CartWidget />
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

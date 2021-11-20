@@ -7,12 +7,14 @@ const CartWidget = () => {
     const {itemsInCart} = useContext(CartContext);
 
     return (
-        <div className="cart-div">
+        <>
             <FontAwesomeIcon icon={faCartShopping} className="cart" />
-            {itemsInCart() !== 0 && 
-                itemsInCart()
+            {itemsInCart() !== 0 &&
+                <span class="badge rounded-pill badge-notification">
+                    {itemsInCart()}
+                </span> 
             }
-        </div>
+        </>
     )
 }
 

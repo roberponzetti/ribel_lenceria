@@ -6,12 +6,9 @@ import { Link } from 'react-router-dom';
 
 const Item = ({id, title, description, price, stock, pictureUrl}) => {
 
-    const handleProductDetailsClick = () => {
-        alert(`Aquí mostraremos el detalle del producto ${id}`)
-    }
     return (
         <div className="m-5">
-            <Card className="productCard bg-card bc-strongPink">
+            <Card className="productCard bg-card">
                 <Card.Title className="titleFont">{title}</Card.Title>
                 <Card.Img
                 className="cardImage"
@@ -19,17 +16,14 @@ const Item = ({id, title, description, price, stock, pictureUrl}) => {
                 src={pictureUrl}
                 height="300"
                 width="200"
-                onClick={handleProductDetailsClick}
                 />
                 <Card.Body>
                 <Card.Text className="descriptionFont">{description}</Card.Text>
-                <Card.Text className="priceFont mt-4">$ {price}</Card.Text>
-                <br />
-                <br />
+                <Card.Text className="priceFont mt-4 mb-5">$ {price}</Card.Text>
                 {stock === 0 
                 ?   <h4 className="sinStock">SIN STOCK</h4>
                 :   <Link to={`../item/${id}`}>
-                        <Button className="bg-strongPink border-0">Detalle del producto</Button>
+                        <Button className="detail-button bg-strongPink border-0">VER PRODUCTO</Button>
                     </Link>
                 }
                 <br />

@@ -13,8 +13,6 @@ export const CartProvider = ({defaultValue = [], children}) => {
         setItems([...items, currentItem]);
     };
 
-    // const editItem = (itemId, quantity) => {};
-
     const removeItem = (itemId) => {
         const currentItems = items.filter(({ item }) => item.id !== itemId);
         setItems(currentItems);
@@ -25,8 +23,6 @@ export const CartProvider = ({defaultValue = [], children}) => {
     const totalAmount = () => items.reduce((sum,item) => sum + item.item.price * item.quantity,0 );
 
     const itemsInCart = () => items.reduce((sum,item) => sum + item.quantity,0 );
-
-    // const isInCart = (itemId) => {}
 
     return <CartContext.Provider value={{items,addItem,removeItem,clear,totalAmount,itemsInCart}}>{children}</CartContext.Provider>
 }

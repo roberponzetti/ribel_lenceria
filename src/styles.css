@@ -3,21 +3,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap');
 
 /* ***** fonts ***** */
+.alert-success{
+  position: unset !important;
+  max-width: 800px !important;
+}
 
 .titleFont{
+  color: #7e7e7e;
   font-family: 'Dongle', sans-serif;
   font-size: 40px !important;
   margin: 0 !important;
 }
 
 .descriptionFont{
+  color: #7e7e7e;
   font-family: 'Raleway', sans-serif;
   font-size: large !important;
 }
 
 .priceFont{
+  color: #7e7e7e;
   font-family: 'Gluten', cursive;
   font-size: 30px !important;
 }
@@ -28,20 +36,91 @@
   color: #ffa4c0dd;
 }
 
-.nav-links{
-  font-family: 'Open Sans Condensed', sans-serif;
-  margin-left: 50px;
+.dropdown-items {
+  font-family: 'Shippori Antique', sans-serif;
+  display: block;
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #ffcedddd;
+  border: 0;
+  color: #7e7e7e;
 }
 
-.dropdown-items{
-  font-family: 'Open Sans Condensed', sans-serif;
+.dropdown-items:hover {
+  color: #7e7e7e !important;
+  background-color: #ffc3d5dd !important;
 }
 
-.dropdown-items:hover{
-  background-color: #ffeffd;
+.dropdown-menu{
+  margin-top: 1.1rem !important;
+  background-color: #ffc3d5dd !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.purchase-container{
+  margin: 20px;
+}
+
+.purchase-form{
+  background-color: #fffde2;
+  float: left;
+  margin-right: 20px !important;
+  max-width: 800px!important;
+  padding-right: 50px;
+}
+.purchase-cart{
+  flex-direction: column !important;
+  background-color: #f5f5f57c;
+}
+
+.purchase-button{
+  font-size: x-large !important;
+  font-weight: bold !important;
+}
+
+.purchase-button:hover{
+  border-color: #ff5bc8e3 !important;
+  box-shadow: 2px 2px 10px #ff5bc8e3 !important;
+}
+
+.item-detail-info{
+  flex-direction: column !important;
+  background-color: #f5f5f57c;
+}
+
+.detail-button, .goback-button{
+  font-weight: bold !important;
+}
+
+.detail-button:hover{
+  border-color: #ff5bc8e3 !important;
+  box-shadow: 2px 2px 10px #ff5bc8e3 !important;
+}
+
+.detail-row{
+  margin-right: 0 !important;
+}
+
+.cardImageSmall{
+  width: 5rem!important;
+  border-radius: 10rem;
 }
 
 /* ***** colours ***** */
+.glassColor{
+  color: #7e7e7e;
+}
+
+.circle-check{
+  font-size: xxx-large;
+  color: #18cf00;
+}
+
+.bg-gray{
+  background-color: #7e7e7e !important;
+}
 
 .bg-card{
   background-color: #fff4ef !important;
@@ -72,23 +151,42 @@
 }
 
 .nav-link{
-  color:rgb(0, 0, 0) !important;
+  color:#7e7e7e !important;
+  padding: 0 !important;
+  margin-left: 20px;
 }
 
-/* .nav-link:hover, .nav-link-item:hover{
-  color: #61001d !important;
-} */
+#nav-dropdown:after{
+  content: none;
+}
 
 .nav-link-item{
-  color: rgb(10, 11, 14) !important;
-  font-weight: bold;
-  font-size: large;
+  color: #7e7e7e !important;
+  font-size: 15px !important;
   margin-left: 25px;
+  padding: 1rem 1rem;
+}
+
+.nav-link-category{
+  color: #7e7e7e !important;
+  font-size: 15px !important;
+  padding: 1rem 1rem;
+}
+
+.nav-links{
+  font-family: 'Shippori Antique', sans-serif;
+  margin-left: 25px;
+  
 }
 
 a:-webkit-any-link {
   text-decoration: none;
-  color: inherit;
+}
+
+.nav-link-item:hover {
+  text-decoration: none;
+  font-size: 16px !important;
+  color: #626262 !important;
 }
 
 #nav-link:hover > .dropdown-menu{
@@ -101,21 +199,26 @@ a:-webkit-any-link {
 }
 
 .cart{
-  font-size: 1.5em;
+  font-size: 1.2em;
+  align-self: center;
+  margin-left: 2rem !important;
+  margin-right: 1rem!important;
+  color:#7e7e7e !important;
 }
 
 .cart:hover{
   cursor: pointer;
-  /* color: #61001d; */
+  color: #626262 !important;
 }
 
-.cart-div{
-  margin-right: 20px;
+.itemsInC{
+  margin-bottom: 30px !important;
 }
 
 .search-form{
   margin-left: 1rem ;
   margin-right: 2rem ;
+  align-self: center;
 }
 
 .search-bar:focus{
@@ -139,6 +242,9 @@ a:-webkit-any-link {
 }
   
 .productCard{
+  margin: 0.1rem !important;
+  border: 0 !important;
+  border-radius: 2rem !important;
   height: 38rem !important;
   width: 20rem !important;
 }
@@ -148,6 +254,22 @@ a:-webkit-any-link {
   right: 0;
 }
 
+.cardImage{
+  border-radius: 1rem !important;
+}
+
 .cardImage:hover{
   cursor: pointer;
+}
+
+.item-detail-image{
+  float: left;
+}
+
+.badge{
+  background-color: red;
+  vertical-align:middle !important;
+  margin-left:-25px !important;
+  margin-top: -30px !important;
+  font-size:10px !important;
 }
