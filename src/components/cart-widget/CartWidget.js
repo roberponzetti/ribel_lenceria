@@ -10,7 +10,7 @@ const CartWidget = () => {
         <>
             <FontAwesomeIcon icon={faCartShopping} className="cart" />
             {itemsInCart() !== 0 &&
-                <span class="badge rounded-pill badge-notification">
+                <span className="badge rounded-pill badge-notification">
                     {itemsInCart()}
                 </span> 
             }

@@ -7,7 +7,6 @@ export const CartProvider = ({defaultValue = [], children}) => {
 
     const addItem = (currentItem) => {
         if (items.some(({ item }) => item.id === currentItem.item.id)){
-            console.log("ya existe");
             return;
         }
         setItems([...items, currentItem]);
@@ -24,5 +23,9 @@ export const CartProvider = ({defaultValue = [], children}) => {
 
     const itemsInCart = () => items.reduce((sum,item) => sum + item.quantity,0 );
 
-    return <CartContext.Provider value={{items,addItem,removeItem,clear,totalAmount,itemsInCart}}>{children}</CartContext.Provider>
+    const isInCart = (itemId) => {
+        return items.some((item) => item.item.id === itemId);
+    };
+
+    return <CartContext.Provider value={{items,addItem,removeItem,clear,totalAmount,itemsInCart, isInCart}}>{children}</CartContext.Provider>
 }

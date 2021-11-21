@@ -1,25 +1,32 @@
-import React, { useContext } from 'react'
-import { Button, Col, Row } from 'react-bootstrap';
+import React, { useContext, useState } from 'react'
+import { Button, Col, Modal, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Cart from '../../components/cart/Cart'
 import { CartContext } from '../../context/CartContext'
 import NumberFormat from 'react-number-format';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const CartContainer = () => {
 
     const {items} = useContext(CartContext)
     const {clear} = useContext(CartContext);
     const {totalAmount} = useContext(CartContext);
+    const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
     const handleClearCart = () => {
         clear();
+        setShow(false);
     };
 
     return (
         <div>     
             {items.length > 0 ? (
                 <>
-                    <Button className="mt-3 mb-5 bg-strongPink border-0" onClick={handleClearCart}>VACIAR CARRITO</Button>
+                    <Button className="mt-3 mb-5 bg-strongPink border-0 clear-button" onClick={handleShow}>VACIAR CARRITO</Button>
                     <Cart items={items}/>
                     <Row className="p-0 row-margin bg-lightYellow align-items-center">
                         <Col md={{ span: 4, offset: 8 }}>
@@ -37,7 +44,7 @@ const CartContainer = () => {
                     <Row className="p-0 row-margin bg-lightYellow align-items-center">
                         <Col md={{ span: 4, offset: 8 }}>
                             <Link to="/purchase">
-                                <Button className="mt-5 bg-strongPink border-0">FINALIZAR COMPRA</Button>
+                                <Button className="mt-5 mb-4 bg-strongPink border-0 finish-button">FINALIZAR COMPRA</Button>
                             </Link>
                         </Col>
                     </Row>
@@ -51,6 +58,21 @@ const CartContainer = () => {
                     </Link>
                 </>
             )}
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header>
+                    <Modal.Title>¡Atención!</Modal.Title>
+                    <FontAwesomeIcon icon={faXmark} className="xmark" />
+                </Modal.Header>
+                <Modal.Body>¿Está segur@ que desea vaciar el carrito?</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="success" onClick={handleClearCart}>
+                        SI
+                    </Button>
+                    <Button variant="danger" onClick={handleClose}>
+                        NO
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 }

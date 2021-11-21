@@ -1,8 +1,8 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import './../../styles.css';
-import SearchWidget from './SearchWidget';
-import { Form, FormControl, InputGroup, NavDropdown } from 'react-bootstrap';
+import SearchWidget from '../search-widget/SearchWidget';
+import { NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CartWidget from '../cart-widget/CartWidget';
 import { useState } from 'react';
@@ -66,20 +66,7 @@ const NavMenu = () => {
                         </Link>
                     </Nav>
                     <Nav className="position-right">
-                        <Form className="search-form" >
-                            <Form.Group>
-                                <InputGroup>
-                                    <InputGroup.Text>
-                                        <SearchWidget />
-                                    </InputGroup.Text>
-                                    <FormControl
-                                        type="search"
-                                        placeholder="Buscar productos..."
-                                        className="search-bar"
-                                    />
-                                </InputGroup>
-                            </Form.Group>
-                        </Form>
+                        <SearchWidget/>
                         <Link className="cart" to="/cart">
                             <CartWidget />
                         </Link>

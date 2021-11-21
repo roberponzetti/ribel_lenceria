@@ -6,7 +6,6 @@ import NotFound from '../layouts/not-found/NotFound'
 import ItemDetailContainer from '../layouts/item-detail-container/ItemDetailContainer';
 import CartContainer from '../layouts/cart-container/CartContainer'
 import FinishPurchaseContainer from '../layouts/finish-purchase-container/FinishPurchaseContainer';
-import SuccessContainer from '../layouts/success-container/SuccessContainer';
 
 const Routes = () => {
     return (
