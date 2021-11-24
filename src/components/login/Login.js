@@ -30,6 +30,15 @@ const Login = ({ history }) => {
   }
 
   return (
+    <>
+      <div>
+        <img
+          alt=""
+          src="/img/ribel-logo2.png"
+          width="20%"
+          className="d-inline-block align-top mt-5"
+      />
+      </div>
       <Row className="p-0 mt-5 row-margin align-items-center">
         <Col className="align-self-start login-div" md={{ offset: 4, span: 4 }}>
           <h1 className="login-font">Log in</h1>
@@ -50,6 +59,7 @@ const Login = ({ history }) => {
           </Form>
         </Col>
       </Row>   
+    </>
   )
 }
 

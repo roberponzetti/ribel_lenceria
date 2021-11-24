@@ -13,33 +13,43 @@ const SignUp = ({ history }) => {
             await getFirebase()
                 .auth()
                 .createUserWithEmailAndPassword(email.value, password.value);
-            history.push("/");
+            history.push("/login");
         } catch (error) {
         alert("Error al querer registrarse. Por favor verifique sus datos");
         }
     }, [history]);
 
     return (
-        <Row className="p-0 mt-5 row-margin align-items-center">
-            <Col className="align-self-start login-div" md={{ offset: 4, span: 4 }}>
-                <h1 className="login-font">Sign up</h1>
-                <Form onSubmit={handleSignUp}>
-                    <Form.Group className="mb-3" controlId="formEmail">
-                        <Form.Control className="input" name="email" type="email" placeholder="Email" required />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formPassword">
-                        <Form.Control className="input"  name="password" type="password" placeholder="Password" required />
-                    </Form.Group>
-                    <Button className="mt-3 bg-strongPink border-0 login-button" type="submit">Registrarse</Button>
-                    <div className="m-3">
-                        <span className="signup-message">¿Ya tienes cuenta?</span>
-                        <Link className="nav-link-item signup-message text-danger p-0 m-2" to="/login">
-                        Ingresa!
-                        </Link>
-                    </div>
-                </Form>
-            </Col>
-        </Row>   
+        <>
+            <div>
+                <img
+                alt=""
+                src="/img/ribel-logo2.png"
+                width="20%"
+                className="d-inline-block align-top mt-5"
+                />
+            </div>
+            <Row className="p-0 mt-5 row-margin align-items-center">
+                <Col className="align-self-start login-div" md={{ offset: 4, span: 4 }}>
+                    <h1 className="login-font">Sign up</h1>
+                    <Form onSubmit={handleSignUp}>
+                        <Form.Group className="mb-3" controlId="formEmail">
+                            <Form.Control className="input" name="email" type="email" placeholder="Email" required />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formPassword">
+                            <Form.Control className="input"  name="password" type="password" placeholder="Password" required />
+                        </Form.Group>
+                        <Button className="mt-3 bg-strongPink border-0 login-button" type="submit">Registrarse</Button>
+                        <div className="m-3">
+                            <span className="signup-message">¿Ya tienes cuenta?</span>
+                            <Link className="nav-link-item signup-message text-danger p-0 m-2" to="/login">
+                            Ingresa!
+                            </Link>
+                        </div>
+                    </Form>
+                </Col>
+            </Row> 
+        </> 
     )
 }
 

@@ -4,7 +4,12 @@
 
 - #### I'm a software developer and actually I'm learning React JS 
 
-![ribelGif1](https://user-images.githubusercontent.com/51685639/139351644-fac9f2ed-a7bb-4672-89a2-68af434af68d.gif)
+![ribelGifcoderhouse](https://user-images.githubusercontent.com/51685639/143321776-3dabb7ea-8e8c-4a6c-ae88-b467f5e05901.gif) 
+
+
+# Responsive design  
+
+![ribelGifcoderhouse-responsive](https://user-images.githubusercontent.com/51685639/143320844-a388bc7f-fd32-48e9-94b7-f3a54ceb85c7.gif)
 
 # Functionality
 
@@ -35,7 +40,8 @@
 - In this step you have your list of product/s and a form is given to complete your personal information.
 - An order will be generated if your information is correct, and you'll receive your order ID.
 
-### Technologies & Dependencies
+# Technologies & Dependencies  
+
 ![reactsmall](https://user-images.githubusercontent.com/51685639/143309695-0a8b4822-e7b8-4c18-8fe7-abd06d744f05.png)  ![htmlcssjssmall](https://user-images.githubusercontent.com/51685639/143309400-86bf8cdd-1dd1-4d9c-8e10-7a12b089dfb2.png)  
 
 ### [React-Bootstrap](https://react-bootstrap.github.io) ![bootstrapsmall](https://user-images.githubusercontent.com/51685639/143309497-46a21cbd-7ab5-410e-911a-9ed7d91cb289.png)
