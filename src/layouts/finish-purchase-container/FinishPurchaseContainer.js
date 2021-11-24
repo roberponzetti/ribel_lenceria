@@ -158,8 +158,7 @@ const FinishPurchaseContainer = () => {
             </>
         : (
             <SuccessContainer params={orderCreatedId} />
-        )}
-        
+        )}        
         </>
     )
 }

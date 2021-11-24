@@ -179,7 +179,7 @@ a:-webkit-any-link {
 }
 
 .dropdown-menu[aria-labelledby = basic-nav-dropdown2]{
-  margin-top: 0.8rem !important;
+  margin-top: 0rem !important;
   background-color: #ffc3d5dd !important;
   max-width: 5rem !important;
   min-width: 5rem !important;
@@ -276,7 +276,7 @@ a:-webkit-any-link {
 .wrapItems{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
 }
   
 .productCard{

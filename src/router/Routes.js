@@ -45,6 +45,7 @@ const Routes = () => {
                     <FinishPurchaseContainer />
                 </PrivateRoute>
                 <Route exact path="*">
+                    <NavBar />
                     <NotFound />
                 </Route>
             </Switch>
