@@ -36,13 +36,18 @@
 - An order will be generated if your information is correct, and you'll receive your order ID.
 
 ### Technologies & Dependencies
-![reactsmall](https://user-images.githubusercontent.com/51685639/143309695-0a8b4822-e7b8-4c18-8fe7-abd06d744f05.png)![htmlcssjssmall](https://user-images.githubusercontent.com/51685639/143309400-86bf8cdd-1dd1-4d9c-8e10-7a12b089dfb2.png)
-![bootstrapsmall](https://user-images.githubusercontent.com/51685639/143309497-46a21cbd-7ab5-410e-911a-9ed7d91cb289.png)##[React-Bootstrap](https://react-bootstrap.github.io)
+![reactsmall](https://user-images.githubusercontent.com/51685639/143309695-0a8b4822-e7b8-4c18-8fe7-abd06d744f05.png)![htmlcssjssmall](https://user-images.githubusercontent.com/51685639/143309400-86bf8cdd-1dd1-4d9c-8e10-7a12b089dfb2.png)  
+
+![bootstrapsmall](https://user-images.githubusercontent.com/51685639/143309497-46a21cbd-7ab5-410e-911a-9ed7d91cb289.png) #[React-Bootstrap](https://react-bootstrap.github.io)  
+
 ![fontawesomesmall](https://user-images.githubusercontent.com/51685639/143309785-dc3bb86c-3aa4-4897-af9f-d4e46ddaa562.png)
-##[Font Awesome v6](https://fontawesome.com/v6.0/icons)  	
-![firebasesmall](https://user-images.githubusercontent.com/51685639/143307909-af1c58b9-2975-46b7-be6e-68acc8e773eb.png)##[Firebase](https://firebase.google.com/)
-##[React-Router](https://reactrouter.com/)
-##[React number format](https://www.npmjs.com/package/react-number-format)
+#[Font Awesome v6](https://fontawesome.com/v6.0/icons)  
+
+![firebasesmall](https://user-images.githubusercontent.com/51685639/143307909-af1c58b9-2975-46b7-be6e-68acc8e773eb.png) #[Firebase](https://firebase.google.com/)  
+
+#[React-Router](https://reactrouter.com/)  
+
+#[React number format](https://www.npmjs.com/package/react-number-format)
 
 # Getting Started with Create React App
 
