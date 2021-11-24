@@ -6,14 +6,47 @@
 
 ![ribelGif1](https://user-images.githubusercontent.com/51685639/139351644-fac9f2ed-a7bb-4672-89a2-68af434af68d.gif)
 
+# Functionality
+
+### Sign up - Sign in
+
+- Sign up with an email and password without any validation at the moment.
+- Sign in with an existing user.
+
+### Navigation bar
+
+- Navigate among products and categories or you can search for any category from search bar.
+- If you are logged in, you can see your cart. If not, you can log in from the profile icon.
+
+### Products
+
+- You can see all products available in the commerce, with or without stock.
+- You can see not only products available in the commerce with stock, but also without stock.
+- If you are interested in a product, you can access to it from the detail button.
+- Also you can add to cart the amount you want.
+
+### Cart
+
+- A list of products that you have added to it will be displayed to check it.
+- If it`s correct, you can go to the purchase step, if not, you are allowed to add more products or delete ones.
+
+### Purchase
+
+- In this step you have your list of product/s and a form is given to complete your personal information.
+- An order will be generated if your information is correct, and you'll receive your order ID.
+
+### Dependencies
+
+Font Awesome v6 	https://fontawesome.com/v6.0/icons
+React bootstrap		https://react-bootstrap.github.io/
+React router
+React number format	https://www.npmjs.com/package/react-number-format
+![firebasesmall](https://user-images.githubusercontent.com/51685639/143307909-af1c58b9-2975-46b7-be6e-68acc8e773eb.png) Firebase - Firebase Auth
+This project has been stylized with [React-Bootstrap](https://react-bootstrap.github.io)
 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-# Styling this project
-
-This project has been stylized with [React-Bootstrap](https://react-bootstrap.github.io)
 
 ## Available Scripts
 
