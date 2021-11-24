@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import '../../styles.css';
 import { Link, useHistory, useLocation } from 'react-router-dom';
@@ -8,21 +8,27 @@ import { Col, Image, Row } from 'react-bootstrap';
 import NumberFormat from 'react-number-format';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faCartPlus, faSquareCheck, faPersonRunning } from '@fortawesome/free-solid-svg-icons'
+import { AuthContext } from '../../context/AuthContext';
 
 const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity, setQuantity }) => {
     const location = useLocation();
     const {addItem} = useContext(CartContext);
     const {removeItem} = useContext(CartContext);
     const {isInCart} = useContext(CartContext);
+    const {currentUser} = useContext(AuthContext);
     const [isAdded, setIsAdded] = useState(false);
 
     let history = useHistory();
 
     const handleAddItem = () => {
-        const item = { id, title, price, pictureUrl, stock };
-        addItem({ item, quantity });
-        setIsAdded(true);
-        isInCart({id});
+        if(currentUser){
+            const item = { id, title, price, pictureUrl, stock };
+            addItem({ item, quantity });
+            setIsAdded(true);
+            isInCart({id});
+        }else{
+            document.location.href = '/login';
+        }
     }
 
     const handleRemoveItem = () => {
@@ -63,7 +69,7 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
                                         {isAdded === false ? (
                                             <>
                                                 <ItemCount quantity={quantity} setQuantity={setQuantity} stock={stock} />
-                                                <Button className="bg-strongPink border-0 mt-5 mb-5 w-25 align-self-center addto-cart-button" 
+                                                <Button className="bg-strongPink border-0 mt-5 mb-5 w-25 align-self-center addto-cart-button"
                                                         onClick={handleAddItem}>
                                                     Agregar <FontAwesomeIcon icon={faCartPlus} />
                                                 </Button>
@@ -73,7 +79,7 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
                                             <>
                                                 <Link to="/cart">
                                                     <Button className="bg-strongPink border-0 mt-5 font-weight-bold goto-cart-button">
-                                                        Ir al carrito
+                                                        Ir al carrito <FontAwesomeIcon icon={faPersonRunning} />
                                                     </Button>
                                                 </Link>
                                             </>
@@ -85,11 +91,6 @@ const ItemDetail = ({ id, title, description, price, stock, pictureUrl, quantity
                                         <Button className="added-button border-0 mt-5 mb-5 w-50 font-weight-bold" disabled>
                                             AGREGADO <FontAwesomeIcon icon={faSquareCheck} />
                                         </Button>
-                                        <Link to="/cart">
-                                            <Button className="bg-strongPink border-0 mb-5 font-weight-bold goto-cart-button">
-                                                Ir al carrito <FontAwesomeIcon icon={faPersonRunning} />
-                                            </Button>
-                                        </Link>
                                     </>
                                 )}
                             </div>

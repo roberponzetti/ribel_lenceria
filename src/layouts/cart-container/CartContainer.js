@@ -14,8 +14,8 @@ const CartContainer = () => {
     const {totalAmount} = useContext(CartContext);
     const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const handleClearCart = () => {
         clear();
@@ -54,14 +54,14 @@ const CartContainer = () => {
                     <h3 className="mt-5 descriptionFont fs-3">¡Su carrito está vacío!</h3>
                     <h4 className="mt-5 descriptionFont fs-4">Visitá nuestro catálogo de productos.</h4>
                     <Link to="/products">
-                        <Button className="mt-5 bg-strongPink border-0" onClick={handleClearCart}>VER CATÁLOGO</Button>
+                        <Button className="mt-5 bg-strongPink border-0 catalog-button" onClick={handleClearCart}>VER CATÁLOGO</Button>
                     </Link>
                 </>
             )}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header>
                     <Modal.Title>¡Atención!</Modal.Title>
-                    <FontAwesomeIcon icon={faXmark} className="xmark" />
+                    <FontAwesomeIcon icon={faXmark} className="xmark" onClick={handleClose} />
                 </Modal.Header>
                 <Modal.Body>¿Está segur@ que desea vaciar el carrito?</Modal.Body>
                 <Modal.Footer>

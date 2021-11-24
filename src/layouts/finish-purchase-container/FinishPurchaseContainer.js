@@ -8,6 +8,9 @@ import Cart from '../../components/cart/Cart'
 import '../../styles.css';
 import NumberFormat from 'react-number-format'
 import SuccessContainer from '../success-container/SuccessContainer'
+import { useHistory } from 'react-router'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 const FinishPurchaseContainer = () => {
 
@@ -15,11 +18,14 @@ const FinishPurchaseContainer = () => {
     const {totalAmount} = useContext(CartContext);
     const {clear} = useContext(CartContext);
     const [orderCreatedId, setOrderCreatedId] = useState(null);
+    const [validated, setValidated] = useState(false);
     const [buyer, setBuyer] = useState({
         name: "",
         phone: "",
         email: "",
     });
+
+    let history = useHistory();
 
     const handleChange = (event) => {
         const target = event.target;
@@ -35,9 +41,15 @@ const FinishPurchaseContainer = () => {
     const { name, phone, email } = buyer;
 
     const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();     
+        }
+        setValidated(true);
         event.preventDefault();
         handleFinishPurchase();
-    }
+    };
 
     const handleFinishPurchase = () => {
         const newItems = items.map(({ item, quantity }) => ({
@@ -60,8 +72,6 @@ const FinishPurchaseContainer = () => {
             total: totalAmount(),
         };
 
-        console.log(newItems);
-
         const db = getFirestore();
         const orders = db.collection("orders");
         const batch = db.batch();
@@ -83,42 +93,70 @@ const FinishPurchaseContainer = () => {
     return (
         <>
         {!orderCreatedId ?
-            <div className="purchase-container">
-                <div className="container purchase-form">
-                    <h2 className="mt-5">Ingrese sus datos de facturación:</h2>
+            <>
+                <div className="container text-align-left mt-5">
+                    <Button className="goback-button bg-strongPink border-0 mb-2" onClick={() => history.goBack()} ><FontAwesomeIcon icon={faAngleLeft} /> VOLVER</Button>
+                </div>
+                <div className="purchase-container">
                     <Row className="p-0 mt-5 row-margin align-items-center">
-                        <Col md={{ offset: 2, span: 8, offset: 2 }}>
-                            <Form id="purchaseForm" onSubmit={handleSubmit}>
-                                <Form.Group className="mb-3" controlId="formBasicName">
-                                    <Form.Control type="text" placeholder="Nombre y apellido" name="name" value={name} onChange={handleChange} />
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="formBasicPhone">
-                                    <Form.Control type="text" placeholder="Teléfono" name="phone" value={phone} onChange={handleChange} />
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Control type="email" placeholder="Email" name="email" value={email} onChange={handleChange} />
-                                </Form.Group>
-                            </Form>
+                        <Col className="align-self-start" md={{ offset: 1, span: 6 }}>
+                            <div className="container purchase-form">
+                                <h2 className="mt-3 mb-4">Ingrese sus datos de facturación:</h2>
+                                <Form id="purchaseForm" validated={validated} autoComplete="off" onSubmit={handleSubmit}>
+                                    <Form.Group className="mb-3" controlId="formName">
+                                        <Form.Control 
+                                            className="form-controls input"
+                                            type="text" 
+                                            placeholder="Nombre y apellido" 
+                                            name="name" 
+                                            value={name}
+                                            required 
+                                            onChange={handleChange} />
+                                    </Form.Group>
+                                    <Form.Group className="mb-3" controlId="formPhone">
+                                        <Form.Control 
+                                            className="form-controls input"
+                                            type="text" 
+                                            placeholder="Teléfono" 
+                                            name="phone" 
+                                            value={phone} 
+                                            required
+                                            onChange={handleChange} />
+                                    </Form.Group>
+                                    <Form.Group className="mb-3" controlId="formEmail">
+                                        <Form.Control 
+                                            className="form-controls input"
+                                            type="email" 
+                                            placeholder="Email" 
+                                            name="email" 
+                                            value={email} 
+                                            required
+                                            onChange={handleChange} />
+                                    </Form.Group>
+                                </Form>
+                            </div>
+                        </Col>
+                        <Col md={{ offset: 1, span: 4 }}>
+                            <div className="d-flex purchase-cart">
+                                <Cart items={items}/>
+                                <h2 className="mt-5">
+                                    Total: 
+                                    <NumberFormat
+                                        displayType="text"
+                                        prefix=" $"
+                                        thousandSeparator={true}
+                                        value={totalAmount()}
+                                    />
+                                </h2>
+                                <Button className="mt-5 bg-strongPink border-0 purchase-button" type="submit" form="purchaseForm">
+                                    PAGAR
+                                </Button>
+                            </div>
                         </Col>
                     </Row>
                 </div>
-                <div className="d-flex purchase-cart">
-                    <Cart items={items}/>
-                    <h2 className="mt-5">
-                        Total: 
-                        <NumberFormat
-                            displayType="text"
-                            prefix=" $"
-                            thousandSeparator={true}
-                            value={totalAmount()}
-                        />
-                    </h2>
-                    <Button className="mt-5 bg-strongPink border-0 purchase-button" type="submit" form="purchaseForm">
-                        PAGAR
-                    </Button>
-                </div>
-            </div>
-        : (       
+            </>
+        : (
             <SuccessContainer params={orderCreatedId} />
         )}
         

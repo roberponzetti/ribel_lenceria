@@ -1,21 +1,35 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import './../../styles.css';
-import SearchWidget from '../search-widget/SearchWidget';
-import { NavDropdown } from 'react-bootstrap';
+import SearchBar from '../search-bar/SearchBar';
+import { Button, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CartWidget from '../cart-widget/CartWidget';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { logout } from '../../firebase';
+import { AuthContext } from '../../context/AuthContext';
 
 const NavMenu = () => {
-
+    const userIcon = (<span><FontAwesomeIcon className="profile-icon" icon={faUser} /></span>);
     const [show, setShow] = useState(false);
+    const [profile, setProfile] = useState(false);
+    const { currentUser } = useContext(AuthContext);
 
     const showDropdown = (e)=>{
         setShow(!show);
     }
     const hideDropdown = e => {
         setShow(false);
+    }
+
+    const showProfile = (e)=>{
+        setProfile(!profile);
+    }
+
+    const hideProfile = e => {
+        setProfile(false);
     }
  
     return (
@@ -66,12 +80,28 @@ const NavMenu = () => {
                         </Link>
                     </Nav>
                     <Nav className="position-right">
-                        <SearchWidget/>
-                        <Link className="cart" to="/cart">
-                            <CartWidget />
-                        </Link>
+                        <SearchBar />
                     </Nav>
                 </Navbar.Collapse>
+                <NavDropdown show={profile}
+                             onMouseEnter={showProfile} 
+                             onMouseLeave={hideProfile}
+                             className="nav-link-category p-0 user-icon-div" 
+                             title={userIcon}
+                             id="basic-nav-dropdown2">    
+                    {currentUser ? (
+                        <Button className="dropdown-items logout-button" onClick={logout}>
+                            Logout
+                        </Button>
+                    ) : (
+                        <Link className="dropdown-items" to="/login">
+                            Login
+                        </Link>
+                    )}                    
+                </NavDropdown>
+                <Link className="cart" to="/cart">
+                    <CartWidget />
+                </Link>
             </Navbar>
         </>
     );

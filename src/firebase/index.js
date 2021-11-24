@@ -14,3 +14,7 @@ const app = firebase.initializeApp({
 export const getFirebase = () => app
 
 export const getFirestore = () => firebase.firestore(app)
+
+export const auth = firebase.auth();
+
+export const logout = () => auth.signOut();

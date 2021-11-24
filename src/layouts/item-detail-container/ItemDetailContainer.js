@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
 
     const [item, setItem] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         if(itemId){
@@ -18,7 +18,6 @@ const ItemDetailContainer = () => {
             
             currentItem.get().then((document) => {
                 if(!document.exists){
-                    console.log("No item");
                     return;
                 }
                 setItem({
