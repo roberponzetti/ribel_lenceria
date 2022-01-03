@@ -76,6 +76,9 @@
 .bg-strongPink{
   background-color: #ffc3d5dd !important;
 }
+.bg-nav{
+  background-color: #fdcbda !important;
+}
 
 .bc-strongPink{
   border-color: #ffc3d5dd !important;
@@ -168,14 +171,16 @@ a:-webkit-any-link {
   padding: 0.25rem 1rem;
   text-decoration: none;
   white-space: nowrap;
-  background-color: #ffcedddd;
+  /*background-color: #ffc3d5dd;*/
   border: 0;
   color: #7e7e7e;
 }
 
 .dropdown-items:hover {
-  color: #7e7e7e !important;
-  background-color: #ffc3d5dd !important;
+  background-color: none !important;
+  font-size: large;
+  /*color: #7e7e7e !important;
+  background-color: #ffc3d5dd !important;*/
 }
 
 .dropdown-menu[aria-labelledby = basic-nav-dropdown2]{
@@ -276,7 +281,7 @@ a:-webkit-any-link {
 .wrapItems{
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: center;
 }
   
 .productCard{
@@ -420,5 +425,57 @@ a:-webkit-any-link {
     margin-top: 1rem;
     margin-bottom: 1rem !important;
     position: inherit !important;
+  }
+}
+
+
+/*TEST*/
+.nav-link {
+  font-size: 0.95rem;
+}
+
+#basic-nav-dropdown {
+  font-size: 0.95rem;
+}
+
+#seeMoreLink {
+  color: #607d8b;
+}
+
+#seeMoreLink:hover {
+  color: black;
+  font-weight: 400;
+}
+.dropdown-menu {
+  padding: 1em;
+}
+
+.dropdown-item:hover {
+  outline: none;
+  box-shadow: none;
+  background: none;
+  background-color: transparent !important;
+}
+.dropdown-item a:hover {
+  color: #7e7e7e;
+}
+.dropdown-item {
+  height: 2em;
+  padding-left: 0em;
+}
+
+.dropdown-header {
+  font-weight: 600;
+  padding-left: 0em;
+}
+
+.eventsNav{
+  width: 50em;
+}
+
+@media only screen and (max-width: 600px) {
+  .eventsNav {
+    width: 22em;
+    padding-bottom: 1em;
   }
 }

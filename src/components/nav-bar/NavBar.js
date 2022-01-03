@@ -2,7 +2,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import './../../styles.css';
 import SearchBar from '../search-bar/SearchBar';
-import { Button, NavDropdown } from 'react-bootstrap';
+import { Button, Col, Container, Dropdown, NavDropdown, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CartWidget from '../cart-widget/CartWidget';
 import { useContext, useState } from 'react';
@@ -14,6 +14,7 @@ import { AuthContext } from '../../context/AuthContext';
 const NavMenu = () => {
     const userIcon = (<span><FontAwesomeIcon className="profile-icon" icon={faUser} /></span>);
     const [show, setShow] = useState(false);
+    const [showNext, setShowNext] = useState(false);
     const [profile, setProfile] = useState(false);
     const { currentUser } = useContext(AuthContext);
 
@@ -21,7 +22,15 @@ const NavMenu = () => {
         setShow(!show);
     }
     const hideDropdown = e => {
-        setShow(false);
+        /*if(showNext === false){*/
+            setShow(false);
+        /*}*/
+    }
+
+    const showNextDropdown = (e)=>{
+        if(showNext === false){
+            setShowNext(true);
+        }
     }
 
     const showProfile = (e)=>{
@@ -34,7 +43,7 @@ const NavMenu = () => {
  
     return (
         <>
-            <Navbar expand="lg" variant="dark" className="bg-strongPink p-0">
+            <Navbar expand="lg" variant="dark" className="bg-nav p-0 sticky-top">
                 <Navbar.Brand href="/" className="brand-name">
                 <img
                     alt=""
@@ -55,8 +64,73 @@ const NavMenu = () => {
                             onMouseLeave={hideDropdown}
                             className="nav-link-category" 
                             title="Categorías"
-                            id="basic-nav-dropdown">                       
-                            <Link className="dropdown-items" to="/category/lingerie">
+                            id="basic-nav-dropdown">               
+                            <div className="eventsNav pt-0 mt-0">
+                                <Row>
+                                    <Col xs="12" md="4" className="text-left">
+                                        <Dropdown.Header>
+                                        <FontAwesomeIcon
+                                            color="black"
+                                            icon={"concierge-bell"}
+                                            size="1x"
+                                            className="pr-1"
+                                        />
+                                        {"  "}
+                                        HOMBRE
+                                        </Dropdown.Header>
+                                        <Dropdown.Item>
+                                            <Link className="dropdown-items" to="/category/underpants">
+                                                Ropa interior masculina
+                                            </Link>
+                                        </Dropdown.Item>
+                                    </Col>
+                                    <Col xs="12" md="4" className="text-left">
+                                        <Dropdown.Header>
+                                        <FontAwesomeIcon
+                                            color="black"
+                                            icon={"building"}
+                                            size="1x"
+                                            className="pr-1"
+                                        />
+                                        {"  "}
+                                        MUJER
+                                        </Dropdown.Header>
+                                        <Dropdown.Item>
+                                            <Link className="dropdown-items" to="/category/lingerie">
+                                                Lencería
+                                            </Link>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item>
+                                            <Link className="dropdown-items" to="/category/socks">
+                                                Medias
+                                            </Link>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item>
+                                            <Link className="dropdown-items" to="/category/flipFlops">
+                                                Ojotas
+                                            </Link>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item>
+                                            <Link className="dropdown-items" to="/category/pijama">
+                                                Pijamas
+                                            </Link>
+                                        </Dropdown.Item>
+                                    </Col>
+                                    <Col xs="12" md="4" className="text-left">
+                                        <Dropdown.Header>
+                                        <FontAwesomeIcon
+                                            color="black"
+                                            icon={"building"}
+                                            size="1x"
+                                            className="pr-1"
+                                        />
+                                        {"  "}
+                                        NIÑOS
+                                        </Dropdown.Header>
+                                    </Col>
+                                </Row>
+                            </div>
+                            {/* <Link className="dropdown-items" to="/category/lingerie">
                                 Lencería
                             </Link>
                             <Link className="dropdown-items" to="/category/socks">
@@ -70,7 +144,7 @@ const NavMenu = () => {
                             </Link>
                             <Link className="dropdown-items" to="/category/underpants">
                                 Ropa interior masculina
-                            </Link>
+                            </Link> */}
                         </NavDropdown>
                         <Link className="nav-link-item" to="/contact">
                             Contacto
